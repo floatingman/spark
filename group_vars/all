@@ -6,20 +6,15 @@ user:
     email: dwnewman78@gmail.com
     log_dir: log
 
-dotfiles:
-    url: git@github.com:pigmonkey/dotfiles.git
-    rcup_flags: -x README.md
-
 aur:
     dir: aur
     packages:
         - aura-bin
         - downgrade
-        - orpie
+#        - orpie
 
 ssh:
     port: 22
-    user_key: /root/id_rsa
     enable_sshd: False
 
 mail:
