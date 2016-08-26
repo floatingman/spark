@@ -2,39 +2,11 @@
 - name: Install LibreOffice
   pacman: name=libreoffice-fresh state=present
 
-- name: Jail LibreOffice
-  file: src=/usr/bin/firejail
-        dest=/usr/local/bin/libreoffice
-        state=link
-  tags:
-    - firejail
-
-- name: Push LibreOffice firejail profile
-  copy: src=firejail/libreoffice.profile dest=/usr/local/etc/firejail/libreoffice.profile
-  notify:
-    - activate firejail profiles
-  tags:
-    - firejail
-
 - name: Install Zathura and dependencies
   pacman: name={{ item }} state=present
   with_items:
     - zathura-pdf-mupdf
     - zathura-ps
-
-- name: Jail Zathura
-  file: src=/usr/bin/firejail
-        dest=/usr/local/bin/zathura
-        state=link
-  tags:
-    - firejail
-
-- name: Push Zathura firejail profile
-  copy: src=firejail/zathura.profile dest=/usr/local/etc/firejail/zathura.profile
-  notify:
-    - activate firejail profiles
-  tags:
-    - firejail
 
 - name: Install enscript
   pacman: name=enscript state=present

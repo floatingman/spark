@@ -67,35 +67,6 @@ AUR packages are installed via the [ansible-aur][7] module. Note that while
 [aura][8], an [AUR helper][9], is installed by default, it will *not* be used
 during any of the provisioning.
 
-## Firejail
-
-Many applications are sandboxed with [Firejail][10]. This behavior should be
-largely invisible to the user.
-
-Custom security profiles are provided for certain applications. These are
-installed to `/usr/local/etc/firejail`. Firejail does not look in this
-directory by default. To use the security profiles, they must either be
-specified on the command-line or included in an appropriately named profile
-located in `~/.config/firejail`.
-
-    # Example 1:
-    # Launch Firefox using the custom profile by specifying the full path of the profile.
-    $ firejail --profile=/usr/local/etc/firejail/firefox.profile /usr/bin/firefox
-    # Example 2:
-    # Launch Firefox using the custom profile by specifying its directory.
-    $ firejail --profile-path=/usr/local/etc/firejail /usr/bin/firefox
-    # Example 3:
-    # Include the profile  in ~./config/firejail
-    $ mkdir -p ~/.config/firejail
-    $ echo 'include /usr/local/etc/firejail/firefox.profile' > ~/.config/firejail/firefox.profile
-    $ firejail /usr/bin/firefox
-
-The script `profile-activate` is provided to automatically include the profiles
-when appropriate. For every profile located in `/usr/local/etc/firejail`, the
-script looks for a profile with the same name in `~/.config/firejail`. If one
-is not found, it will create a profile that simply includes the system profile,
-as in the third example above. It will not modify any existing user profiles.
-
 ## MAC Spoofing
 
 By default, the MAC address of all network interfaces is spoofed at boot,
@@ -277,7 +248,6 @@ database service inappropriate for production use.
 [7]: https://github.com/pigmonkey/ansible-aur
 [8]: https://github.com/aurapm/aura
 [9]: https://wiki.archlinux.org/index.php/AUR_helpers
-[10]: https://firejail.wordpress.com/
 [11]: https://github.com/EtiennePerot/macchiato
 [12]: https://github.com/pigmonkey/nmtrust
 [13]: http://isync.sourceforge.net/

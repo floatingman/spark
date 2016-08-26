@@ -15,7 +15,7 @@ aur:
 
 ssh:
     port: 22
-    enable_sshd: False
+    enable_sshd: True
 
 mail:
     sync_tool: isync
@@ -37,7 +37,7 @@ editors:
     - emacs
 
 video_drivers:
-    - libva-intel-driver
+    - xf86-video-vmware
 
 base_packages:
     - tmux
