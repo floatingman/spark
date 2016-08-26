@@ -1,5 +1,5 @@
 user:
-    name: dnewma
+    name: dnewman
     uid: 1000
     group: dnewman
     shell: /bin/bash
