@@ -1,9 +1,9 @@
 user:
-    name: pigmonkey
+    name: dnewma
     uid: 1000
-    group: pigmonkey
-    shell: /usr/bin/zsh
-    email:  peter@havenaut.net
+    group: dnewman
+    shell: /bin/bash
+    email: dwnewman78@gmail.com
     log_dir: log
 
 dotfiles:
@@ -39,6 +39,7 @@ network:
 
 editors:
     - gvim
+    - emacs
 
 video_drivers:
     - libva-intel-driver
@@ -78,7 +79,7 @@ filesystem_packages:
 browser_choices:
     - firefox -P default
     - firefox -P work
-    - firewarden chromium
+    - chromium
     - tor-browser-en
     - play
     - qcode
