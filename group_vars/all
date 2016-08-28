@@ -6,6 +6,10 @@ user:
     email: dwnewman78@gmail.com
     log_dir: log
 
+dotfiles:
+   url: git@github.com:floatingman/dotfiles.git
+   rcup_flags: -x README.md
+
 aur:
     dir: aur
     packages:
@@ -15,6 +19,7 @@ aur:
 
 ssh:
     port: 22
+    user_key: /root/.ssh/id_rsa
     enable_sshd: True
 
 mail:
@@ -58,7 +63,6 @@ base_packages:
     - arch-wiki-lite
     - python-keyring
     - python-secretstorage
-    - fabric
     - tig
     - ruby
     - pv
