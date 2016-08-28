@@ -68,6 +68,7 @@ base_packages:
     - pv
     - minicom
     - jq
+    - autojump
 
 filesystem_packages:
     - dosfstools
