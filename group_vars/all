@@ -69,6 +69,7 @@ base_packages:
     - minicom
     - jq
     - autojump
+    - rxvt-unicode
 
 filesystem_packages:
     - dosfstools
