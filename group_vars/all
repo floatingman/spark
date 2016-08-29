@@ -70,6 +70,7 @@ base_packages:
     - jq
     - autojump
     - rxvt-unicode
+    - the_silver_searcher
 
 filesystem_packages:
     - dosfstools
