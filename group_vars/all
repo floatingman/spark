@@ -42,7 +42,7 @@ editors:
     - emacs
 
 video_drivers:
-    - xf86-video-vmware
+    - libva-intel-driver
 
 base_packages:
     - tmux
