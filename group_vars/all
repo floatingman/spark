@@ -15,7 +15,8 @@ aur:
     packages:
         - aura-bin
         - downgrade
-#        - orpie
+        - orpie
+        - overdue
 
 ssh:
     port: 22
@@ -63,6 +64,7 @@ base_packages:
     - arch-wiki-lite
     - python-keyring
     - python-secretstorage
+    - fabric
     - tig
     - ruby
     - pv
@@ -71,6 +73,9 @@ base_packages:
     - autojump
     - rxvt-unicode
     - the_silver_searcher
+    - python-docs
+    - python2-docs
+
 
 filesystem_packages:
     - dosfstools
@@ -107,3 +112,9 @@ postgresql:
     enable: True
 
 fingerprint: False
+
+tor:
+    run_on: trusted
+
+localtime:
+    run_on: trusted
