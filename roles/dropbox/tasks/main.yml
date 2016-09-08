@@ -1,0 +1,15 @@
+---
+- name: Install Dropbox
+  aur: name=dropbox user={{ user.name }}
+  tags:
+    - aur
+
+- name: Install Dropbox CLI
+  aur: name=dropbox-cli user={{ user.name }}
+  tags:
+    - aur
+
+- name: Enable Dropbox service
+  service: name=dropbox@{{ user.name }}.service enabled=yes
+  tags:
+    - dropbox

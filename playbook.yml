@@ -50,6 +50,7 @@
     - { role: calibre, tags: ['calibre'] }
     - { role: aws, tags: ['aws'] }
     - { role: localtime, tags: ['localtime'], when: "localtime is defined" }
+    - { role: dropbox, tags: ['dropbox'] }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"

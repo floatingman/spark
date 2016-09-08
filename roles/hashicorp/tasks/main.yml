@@ -10,5 +10,6 @@
   with_items:
     - vault-bin
     - terraform
+    - packer-io
   tags:
     - aur
