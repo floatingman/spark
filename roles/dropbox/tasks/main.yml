@@ -13,3 +13,6 @@
   service: name=dropbox@{{ user.name }}.service enabled=yes
   tags:
     - dropbox
+
+- name: Symlink personal directory
+  file: src=/home/{{ user.name }}/Dropbox/personal dest=/home/{{ user.name }}/personal state=link owner={{ user.name }} group={{ user.group }} mode=775

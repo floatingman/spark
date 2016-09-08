@@ -77,6 +77,7 @@ base_packages:
     - python2-docs
     - htop
     - atop
+    - hunspell-en
 
 filesystem_packages:
     - dosfstools
