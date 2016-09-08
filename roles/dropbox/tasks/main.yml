@@ -15,4 +15,4 @@
     - dropbox
 
 - name: Symlink personal directory
-  file: src=/home/{{ user.name }}/Dropbox/personal dest=/home/{{ user.name }}/personal state=link owner={{ user.name }} group={{ user.group }} mode=775
+  file: src=/home/{{ user.name }}/Dropbox/personal dest=/home/{{ user.name }}/personal state=link owner={{ user.name }} group={{ user.group }}
