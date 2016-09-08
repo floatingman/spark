@@ -75,7 +75,8 @@ base_packages:
     - the_silver_searcher
     - python-docs
     - python2-docs
-
+    - htop
+    - atop
 
 filesystem_packages:
     - dosfstools
