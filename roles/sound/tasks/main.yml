@@ -2,6 +2,9 @@
 - name: Install alsa-utils
   pacman: name=alsa-utils state=present
 
+- name: Copy asound.conf
+  copy: src=asound.conf dest=/etc/asound.conf
+
 - name: Copy udev rule for USB audio device switching
   copy: src=udev.rules dest=/etc/udev/rules.d/00-local.rules
 
