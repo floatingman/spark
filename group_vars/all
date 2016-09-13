@@ -120,3 +120,8 @@ tor:
 
 localtime:
     run_on: trusted
+
+nameservers:
+    - 192.168.0.1     # Internal
+    - 156.154.71.1    # UltraDNS-2
+    - 129.250.35.250  # Hurricane Electric
