@@ -53,6 +53,7 @@
     - { role: localtime, tags: ['localtime'], when: "localtime is defined" }
     - { role: dropbox, tags: ['dropbox'] }
     - { role: docker, tags: ['docker'] }
+    - { role: bluetooth, tags: ['bluetooth'] }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"

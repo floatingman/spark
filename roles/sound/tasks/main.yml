@@ -10,3 +10,42 @@
 
 - name: Push volume control script
   copy: src=volume.sh dest=/usr/local/bin/volume mode=0755
+
+- name: Install Pulseaudio
+  pacman: name=pulseaudio
+  tags:
+    - pulseaudio
+
+- name: Install pulseaudio bluetooth support
+  pacman: name=pulseaudio-bluetooth
+  tags:
+    - pulseaudio
+    - bluetooth
+
+- name: Install pulseaudio sound controls
+  pacman: name={{ item }} state=present
+  with_items:
+    - pavucontrol
+    - pamixer
+  tags:
+    - pulseaudio
+
+- name: Install pulseaudio aur components
+  aur: name=pulseaudio-ctl user={{ user.name }}
+  tags:
+    - aur
+    - pulseaudio
+
+- name: Install pulsemixer
+  aur: name=pulsemixer user={{ user.name }}
+  tags:
+    - aur
+    - pulseaudio
+
+- name: Install pasystray
+  aur: name=pasystray user={{ user.name }}
+  tags:
+    - aur
+    - pulseaudio
+
+    
