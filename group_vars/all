@@ -17,6 +17,9 @@ aur:
         - downgrade
         - orpie
         - overdue
+        - fasd
+        - fzf-git
+        - fzf-extras-git
 
 ssh:
     port: 22
@@ -46,6 +49,8 @@ video_drivers:
     - libva-intel-driver
 
 base_packages:
+    - ctags
+    - mlocate
     - tmux
     - git
     - gnupg
