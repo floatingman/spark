@@ -27,6 +27,7 @@
   with_items:
     - pavucontrol
     - pamixer
+    - paprefs
   tags:
     - pulseaudio
 
@@ -48,4 +49,15 @@
     - aur
     - pulseaudio
 
-    
+- name: Install paman
+  aur: name=paman user={{ user.name }}
+  tags:
+    - aur
+    - pulseaudio
+
+- name: Install pavumeter
+  aur: name=pavumeter user={{ user.name }}
+  tags:
+    - aur
+    - pulseaudio
+

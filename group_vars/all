@@ -84,6 +84,14 @@ base_packages:
     - atop
     - hunspell-en
 
+python_packages:
+  - python2
+  - python
+  - ipython
+  - ipython2
+  - python-setuptools
+  - python2-setuptools
+
 filesystem_packages:
     - dosfstools
     - hfsprogs

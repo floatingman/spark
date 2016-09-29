@@ -38,6 +38,7 @@
     - { role: mail, tags: ['mail'] }
     - { role: cups, tags: ['cups'] }
     - { role: office, tags: ['office'] }
+    - { role: redshift, tags: ['redshift']}
     - { role: rtorrent, tags: ['rtorrent'] }
     - { role: virtualbox, tags: ['virtualbox'] }
     - { role: hashicorp, tags: ['hashicorp'] }
@@ -54,6 +55,8 @@
     - { role: dropbox, tags: ['dropbox'] }
     - { role: docker, tags: ['docker'] }
     - { role: bluetooth, tags: ['bluetooth'] }
+    - { role: python, tags: ['python']}
+
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"
