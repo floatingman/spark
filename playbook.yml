@@ -56,7 +56,8 @@
     - { role: docker, tags: ['docker'] }
     - { role: bluetooth, tags: ['bluetooth'] }
     - { role: python, tags: ['python']}
-
+    - { role: mongodb, tags: ['mongodb'] }
+    
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"
