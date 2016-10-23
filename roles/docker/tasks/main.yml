@@ -5,7 +5,7 @@
     - aur
 
 - name: Enable Docker service
-  service: name=docker.service enabled=yes
+  service: name=docker.service enabled=no
   tags:
     - aur
 

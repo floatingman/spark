@@ -57,6 +57,8 @@
     - { role: bluetooth, tags: ['bluetooth'] }
     - { role: python, tags: ['python']}
     - { role: mongodb, tags: ['mongodb'] }
+    - { role: intellij, tags: ['intellij'] }
+    - { role: pycharm, tags: ['pycharm'] }
     
   vars_prompt:
     - name: user_password
