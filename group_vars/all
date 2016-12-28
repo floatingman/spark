@@ -6,6 +6,8 @@ user:
     email: dwnewman78@gmail.com
     log_dir: log
 
+hostname: strongarm
+
 dotfiles:
    url: git@github.com:floatingman/dotfiles.git
    rcup_flags: -x README.md
@@ -20,6 +22,7 @@ aur:
         - fasd
         - fzf-git
         - fzf-extras-git
+        - zplug
 
 ssh:
     port: 22
@@ -29,6 +32,7 @@ ssh:
 mail:
     sync_tool: isync
     sync_pim: True
+    sync_taskwarrior: True
     sync_time: 5min
     sync_boot_delay: 2min
     sync_on: trusted
@@ -36,10 +40,9 @@ mail:
 network:
     spoof_mac: True
     trusted_uuid:
-        - b21284e6-01af-492f-8bea-45a69ef22a23
-        - 4ddd6988-aad1-4927-b650-ea7d24e0138b
-        - f9b3c62c-2d9f-450a-ac9b-528ba4c85ded
-        - b94375d1-70f8-424f-a6d7-dc52d0ab7288
+        - 9c5b22dc-4351-48a2-84ec-dbb7dd7cc4a1
+        - f0b926dd-5cc9-4922-9a00-465c799c767b
+        - 6d05c005-f075-45b8-ad28-81828876ec0e
 
 editors:
     - gvim
@@ -83,6 +86,7 @@ base_packages:
     - htop
     - atop
     - hunspell-en
+    - glances
 
 python_packages:
   - python2
@@ -139,3 +143,10 @@ nameservers:
     - 8.8.8.8         # google
     - 156.154.71.1    # UltraDNS-2
     - 129.250.35.250  # Hurricane Electric
+
+journal:
+  max_size: 500M
+
+udisks:
+  auto_mount: False
+  shared_mount: True

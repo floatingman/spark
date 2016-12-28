@@ -59,7 +59,7 @@
     - { role: mongodb, tags: ['mongodb'] }
     - { role: intellij, tags: ['intellij'] }
     - { role: pycharm, tags: ['pycharm'] }
-    
+    - { role: haskell, tags: ['haskell'] }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"
