@@ -3,7 +3,7 @@
   lineinfile: dest=/etc/pacman.conf
               state=present
               insertafter=EOF
-              line"{{ item.line }}"
+              line="{{ item.line }}"
   with_items:
     - { line: "[haskell-core]" }
     - { line: "Server = http://xsounds.org/~haskell/core/$arch" }
@@ -45,7 +45,7 @@
   with_items:
     - ghc
     - cabal-install
-    - haddock
+    - haskell-haddock-api
     - happy
     - alex
     - stack
