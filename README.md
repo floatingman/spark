@@ -239,6 +239,10 @@ Additional configuration options are set which improve performance but make the
 database service inappropriate for production use.
 
 
+## Adding custom pacman repositories
+
+Take a look in the infinality and haskell roles for examples on adding custom repositories that need signed keys
+
 [1]: http://www.ansible.com
 [2]: https://www.archlinux.org
 [3]: https://wiki.archlinux.org/index.php/Installation_guide#Post-installation
