@@ -4,3 +4,6 @@
 [submodule "roles/networkmanager/files/nmtrust"]
 	path = roles/networkmanager/files/nmtrust
 	url = https://github.com/pigmonkey/nmtrust.git
+[submodule "roles/pycharm"]
+	path = roles/pycharm
+	url = https://github.com/floatingman/ansible-pycharm
