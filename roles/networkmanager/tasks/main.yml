@@ -1,10 +1,4 @@
 ---
-## - name: Instal NetworkManager noscan mod
-##  aur: name=networkmanager-noscan user={{ user.name }}
-##  tags:
-##    - aur
-
-
 - name: Install NetworkManager and dependencies
   pacman: name={{ item }} state=present
   with_items:

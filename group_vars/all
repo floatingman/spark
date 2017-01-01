@@ -52,14 +52,12 @@ video_drivers:
     - libva-intel-driver
 
 base_packages:
-    - ctags
-    - mlocate
+    - base-devel
     - tmux
     - git
     - gnupg
     - rsync
     - glances
-    - task
     - coreutils
     - moreutils
     - pass
@@ -86,15 +84,14 @@ base_packages:
     - htop
     - atop
     - hunspell-en
-    - glances
 
 python_packages:
-  - python2
-  - python
-  - ipython
-  - ipython2
-  - python-setuptools
-  - python2-setuptools
+    - python2
+    - python
+    - ipython
+    - ipython2
+    - python-setuptools
+    - python2-setuptools
 
 filesystem_packages:
     - dosfstools
@@ -124,6 +121,7 @@ gitannex:
 
 bitlbee:
     run_on: trusted
+    torify: True
 
 bootloader: grub
 
@@ -144,9 +142,11 @@ nameservers:
     - 156.154.71.1    # UltraDNS-2
     - 129.250.35.250  # Hurricane Electric
 
+bluetooth: True
+
 journal:
-  max_size: 500M
+    max_size: 500M
 
 udisks:
-  auto_mount: False
-  shared_mount: True
+    auto_mount: False
+    shared_mount: True

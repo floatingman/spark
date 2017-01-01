@@ -52,11 +52,7 @@ tasks to be skipped.
 ## Tagging
 
 All tasks are tagged with their role, allowing them to be skipped by tag in
-addition to modifying `playbook.yml`. For instance, a system could be built
-excluding the entire `media` role and the `slim` section of the `x`
-role.
-
-    # ansible-playbook -i localhost playbook.yml --skip-tags "media,slim"
+addition to modifying `playbook.yml`.
 
 ## AUR
 
@@ -189,9 +185,32 @@ variable from `trusted` to `all`.
 If the `tarsnapper.tarsnap.run_on` variable is set to anything other than
 `trusted` or `all`, the timer will never be activated.
 
+
+## Tor
+
+[Tor][22] is installed by default. A systemd service unit for Tor is installed,
+but not enabled or started. instead, the service is added to
+`/usr/local/etc/trusted_units`, causing the NetworkManager trusted unit
+dispatcher to activate the service whenever a connection is established to a
+trusted network. The service is stopped whenever the network goes down or a
+connection is established to an untrusted network.
+
+To have the service activated at boot, change the `tor.run_on` variable
+from `trusted` to `all`.
+
+If you do not wish to use Tor, simply remove the `tor` variable from the
+configuration.
+
+### parcimonie.sh
+
+[parcimonie.sh][23] is provided to periodically refresh entries in the user's
+GnuPG keyring over the Tor network. The service is added to
+`/usr/local/etc/trusted_units` and respects the `tor.run_on` variable.
+
+
 ## BitlBee
 
-[BitlBee][22] and [WeeChat][23] are used to provide chat services. A systemd
+[BitlBee][24] and [WeeChat][25] are used to provide chat services. A systemd
 service unit for BitlBee is installed, but not enabled or started by default.
 Instead, the service is added to `/usr/local/etc/trusted_units`, causing the
 NetworkManager trusted unit dispatcher to activate the service whenever a
@@ -204,9 +223,13 @@ from `trusted` to `all`.
 If the `bitlbee.run_on` variable is set to anything other than `trusted` or
 `all`, the service will never be activated.
 
+By default BitlBee will be configured to proxy through Tor. To disable this,
+remove the `bitlebee.torify` variable or disable Tor entirely by removing the
+`tor` variable.
+
 ## git-annex
 
-[git-annex][24] is installed for file syncing. A systemd service unit for the
+[git-annex][26] is installed for file syncing. A systemd service unit for the
 git-annex assistant is enabled and started by default. To prevent this, remove
 the `gitannex` variable from the config.
 
@@ -226,7 +249,7 @@ networks.
 
 ## PostgreSQL
 
-[PostgreSQL][25] is installed and enabled by default. If the
+[PostgreSQL][27] is installed and enabled by default. If the
 `postgresql.enable` variable is set to anything other than `True` or is not
 defined, the service will not be started or enabled.
 
@@ -252,6 +275,7 @@ Take a look in the infinality and haskell roles for examples on adding custom re
 [7]: https://github.com/pigmonkey/ansible-aur
 [8]: https://github.com/aurapm/aura
 [9]: https://wiki.archlinux.org/index.php/AUR_helpers
+[10]: https://firejail.wordpress.com/
 [11]: https://github.com/EtiennePerot/macchiato
 [12]: https://github.com/pigmonkey/nmtrust
 [13]: http://isync.sourceforge.net/
@@ -263,7 +287,9 @@ Take a look in the infinality and haskell roles for examples on adding custom re
 [19]: https://www.tarsnap.com/
 [20]: https://www.tarsnap.com/gettingstarted.html
 [21]: https://github.com/miracle2k/tarsnapper
-[22]: https://www.bitlbee.org/main.php/news.r.html
-[23]: https://weechat.org/
-[24]: https://git-annex.branchable.com/
-[25]: http://www.postgresql.org/
+[22]: https://www.torproject.org/
+[23]: https://github.com/EtiennePerot/parcimonie.sh
+[24]: https://www.bitlbee.org/main.php/news.r.html
+[25]: https://weechat.org/
+[26]: https://git-annex.branchable.com/
+[27]: http://www.postgresql.org/

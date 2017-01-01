@@ -10,8 +10,8 @@
 
 - name: Remove localtime from trusted unit list
   lineinfile: dest=/usr/local/etc/trusted_units
-             state=absent
-             line=localtime.service
+              state=absent
+              line=localtime.service
   when: localtime.run_on == "all"
 
 - name: Disable localtime
