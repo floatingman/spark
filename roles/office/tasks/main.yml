@@ -10,7 +10,7 @@
     - zathura-cb
     - zathura-djvu
 
-name: Set Zathura as default PDF viewer
+- name: Set Zathura as default PDF viewer
   lineinfile: dest=/etc/xdg/mimeapps.list
               regexp=^application/pdf
               state=present
@@ -20,7 +20,7 @@ name: Set Zathura as default PDF viewer
   aur: name=zathura-epub-git user={{ user.name }}
   tags:
     - aur
-    
+
 - name: Install enscript
   pacman: name=enscript state=present
 
