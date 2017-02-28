@@ -22,6 +22,7 @@ aur:
         - fzf-git
         - fzf-extras-git
         - zplug
+        - rxvt-unicode-patched
 
 ssh:
     port: 22
@@ -76,13 +77,12 @@ base_packages:
     - minicom
     - jq
     - autojump
-    - rxvt-unicode
     - the_silver_searcher
     - python-docs
     - python2-docs
     - htop
     - atop
-    
+
 python_packages:
     - python2
     - python
@@ -124,7 +124,7 @@ bitlbee:
 bootloader: grub
 
 postgresql:
-    enable: True
+    enable: False
 
 fingerprint: False
 
@@ -140,7 +140,8 @@ nameservers:
     - 156.154.71.1    # UltraDNS-2
     - 129.250.35.250  # Hurricane Electric
 
-bluetooth: True
+bluetooth:
+    disable: True
 
 journal:
     max_size: 500M

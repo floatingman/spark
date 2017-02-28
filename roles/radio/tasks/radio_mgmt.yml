@@ -2,7 +2,7 @@
 - name: Install CHIRP
   aur: name={{ item }} user={{ user.name }}
   with_items:
-    - hamradio-menu
+    - hamradio-menus
     - chirp
   tags:
     - aur
