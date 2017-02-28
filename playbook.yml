@@ -24,6 +24,7 @@
     - { role: filesystems, tags: ['filesystems'] }
     - { role: archive, tags: ['archive'] }
     - { role: udisks, tags: ['udisks'] }
+    - { role: spell, tags: ['spell'] }
     - { role: browsers, tags: ['browsers'] }
     - { role: yubikey, tags: ['yubikey'] }
     - { role: media, tags: ['media'] }
@@ -47,7 +48,7 @@
     - { role: virtualbox, tags: ['virtualbox'] }
     - { role: hashicorp, tags: ['hashicorp'] }
     - { role: virtualenv, tags: ['virtualenv'] }
-    - { role: cryptshot, tags: ['cryptshot'], when: "cryptshot is defined" }
+      #- { role: cryptshot, tags: ['cryptshot'], when: "cryptshot is defined" }
     - { role: borg, tags: ['borg'] }
     - { role: tarsnap, tags: ['tarsnap'] }
     - { role: mapping, tags: ['mapping'] }
@@ -69,6 +70,8 @@
     - { role: intellij, tags: ['intellij'] }
     - { role: pycharm, tags: ['pycharm'] }
     - { role: haskell, tags: ['haskell'] }
+    - { role: wttr, tags: ['wttr'] }
+
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"

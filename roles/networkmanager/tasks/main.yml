@@ -1,8 +1,12 @@
 ---
-- name: Install NetworkManager and dependencies
+- name: Install NetworkManager-noscan
+  aur: name=networkmanager-noscan user={{ user.name }}
+  tags:
+    - aur
+
+- name: Install NetworkManage extras
   pacman: name={{ item }} state=present
   with_items:
-      - networkmanager
       - networkmanager-openvpn
       - network-manager-applet
       - xfce4-notifyd
