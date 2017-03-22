@@ -5,7 +5,7 @@
 - name: Install hamlib
   aur: name={{ item }} user={{ user.name }}
   with_items:
-    #- perl-opcodes
+    - perl-opcodes
     - hamlib
   tags:
     - aur
