@@ -141,7 +141,7 @@ nameservers:
     - 129.250.35.250  # Hurricane Electric
 
 bluetooth:
-    disable: True
+    disable: False 
 
 journal:
     max_size: 500M
