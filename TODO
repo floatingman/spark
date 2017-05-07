@@ -1,0 +1,4 @@
+[] install hack font
+[] install sdkman and java variants
+[] add pulling down emacs and vim configs
+[] add setting shorter timeouts for systemd shutdown
