@@ -18,6 +18,12 @@
     - aur
     - chromium
 
+- name: Install windvine
+  aur: name=chromium-windvine user={{ user.name }}
+  tags:
+    - aur
+    - chromium
+
 - name: Install tor-browser-en
   aur: name=tor-browser-en user={{ user.name }} skip_pgp=yes
   tags:
