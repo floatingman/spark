@@ -4,12 +4,15 @@ user:
     group: dnewman
     shell: /bin/bash
     email: dwnewman78@gmail.com
-    log_dir: log
+    log:
+        dir: log
+        rotate: 8
 
 hostname: strongarm
 
 dotfiles:
    url: git@github.com:floatingman/dotfiles.git
+   destination: .dotfiles
    rcup_flags: -fx README.md
 
 aur:
@@ -17,17 +20,22 @@ aur:
     packages:
         - aura-bin
         - downgrade
-        - overdue
-        - fasd
         - fzf-git
         - fzf-extras-git
         - zplug
         - rxvt-unicode-patched
+        - miller
+        - myrepos
+        - ctmg
 
 ssh:
     port: 22
     user_key: /root/.ssh/id_rsa
-    enable_sshd: True
+    enable_sshd: False
+
+gnupg:
+    enable_agent: True
+    emulate_ssh: True
 
 mail:
     sync_tool: isync
@@ -39,6 +47,8 @@ mail:
 
 network:
     spoof_mac: True
+    conn_check:
+        interval: 0
     trusted_uuid:
         - 9c5b22dc-4351-48a2-84ec-dbb7dd7cc4a1
         - f0b926dd-5cc9-4922-9a00-465c799c767b
@@ -55,12 +65,11 @@ base_packages:
     - base-devel
     - tmux
     - git
-    - gnupg
     - rsync
     - glances
     - coreutils
     - moreutils
-    - pass
+    - dateutils
     - reflector
     - bc
     - ranger
@@ -68,6 +77,7 @@ base_packages:
     - lsof
     - sysstat
     - arch-wiki-lite
+    - arch-wiki-docs
     - python-keyring
     - python-secretstorage
     - fabric
@@ -83,6 +93,8 @@ base_packages:
     - htop
     - atop
     - etckeeper
+    - screen
+    - units
 
 python_packages:
     - python2
@@ -105,15 +117,17 @@ browser_choices:
     - tor-browser-en
     - play
     - qcode
+    - "| xclip -selection c"
 
 passwordless_sudo:
     - /usr/bin/openvpn*
 
 tarsnapper:
-  deltas: 1h 6h 1d 7d 30d 365d
-  timer:
-    schedule: hourly
-    run_on: trusted
+  deltas: 1h 1d 7d 30d 365d
+  period: DAILY
+  ac_only: True
+  run_on: trusted
+  random_delay: 600
 
 gitannex:
     stop_on_untrusted: True
@@ -125,7 +139,8 @@ bitlbee:
 bootloader: grub
 
 postgresql:
-    enable: False
+    enable: True
+    root: /home/postgres
 
 fingerprint: False
 
@@ -150,3 +165,14 @@ journal:
 udisks:
     auto_mount: False
     shared_mount: True
+
+hostsctl:
+    url: https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
+    
+himawaripy:
+    run_time: 15min
+    run_boot_delay: 2min
+    run_on: trusted
+    flags: --auto-offset --level 4
+
+middle_click_scroll: True
