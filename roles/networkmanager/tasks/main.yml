@@ -1,6 +1,8 @@
 ---
 - name: Install NetworkManager-noscan
-  pacman: name=networkmanager state=present
+  aur: name=networkmanager-noscan user={{ user.name }}
+  tags:
+    - aur
 
 - name: Install NetworkManage extras
   pacman: name={{ item }} state=present

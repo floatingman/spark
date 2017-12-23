@@ -13,15 +13,8 @@
     - chromium
 
 - name: Install Pepper Flash
-  aur: name=pepper-flash user={{ user.name }}
+  pacman: name=pepper-flash state=present
   tags:
-    - aur
-    - chromium
-
-- name: Install windvine
-  aur: name=chromium-windvine user={{ user.name }}
-  tags:
-    - aur
     - chromium
 
 - name: Install tor-browser-en
