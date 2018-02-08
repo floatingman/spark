@@ -12,11 +12,6 @@
     - python-pylast
     - python-requests
     - beets
+    - python-pyacoustid
   tags:
-    - beets
-
-- name: Install python-pyacoustid
-  aur: name=python-pyacoustid user={{ user.name }}
-  tags:
-    - aur
     - beets

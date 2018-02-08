@@ -1,6 +1,6 @@
 ---
 - name: Install mutt
-  aur: name=neomutt user={{ user.name }}
+  pacman: name=neomutt state=present
   tags:
     - aur
 

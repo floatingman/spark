@@ -8,7 +8,7 @@ user:
         dir: log
         rotate: 8
 
-hostname: strongarm
+hostname: archdev
 
 dotfiles:
    url: git@github.com:floatingman/dotfiles.git
@@ -31,7 +31,7 @@ aur:
 ssh:
     port: 22
     user_key: /root/.ssh/id_rsa
-    enable_sshd: False
+    enable_sshd: True 
 
 gnupg:
     enable_agent: True
@@ -46,7 +46,7 @@ mail:
     sync_on: trusted
 
 network:
-    spoof_mac: True
+    spoof_mac: False
     conn_check:
         interval: 0
     trusted_uuid:
@@ -106,7 +106,6 @@ python_packages:
 
 filesystem_packages:
     - dosfstools
-    - hfsprogs
     - ntfs-3g
     - exfat-utils
 
