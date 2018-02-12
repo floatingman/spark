@@ -45,7 +45,6 @@
   with_items:
     - ghc
     - cabal-install
-    - haskell-haddock-api
     - happy
     - alex
     - stack

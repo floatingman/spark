@@ -5,11 +5,9 @@
 - name: Install consul
   pacman: name=consul state=present
 
-- name: Install vault and terraform
-  aur: name={{ item }} user={{ user.name }}
+- name: Install terraform and packer-io and vault
+  pacman: name={{ item }} state=present
   with_items:
-    - vault-bin
     - terraform
     - packer-io
-  tags:
-    - aur
+    - vault
