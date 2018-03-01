@@ -44,7 +44,7 @@
     - pulseaudio
 
 - name: Install pasystray
-  aur: name=pasystray user={{ user.name }}
+  aur: name=pasystray-gtk3-git user={{ user.name }}
   tags:
     - aur
     - pulseaudio
