@@ -34,12 +34,12 @@
       - noto-fonts
       - ttf-dejavu
       - ttf-liberation
-      - ttf-symbola
       - gsfonts
       - tex-gyre-fonts
       - ttf-droid
       - ttf-ubuntu-font-family
       - ttf-hack
+      - ttf-carlito
 
 - name: Install AUR fonts
   aur: name={{ item }} user={{ user.name }}
@@ -50,7 +50,6 @@
       - ttf-opensans
       - ttf-merriweather-sans
       - ttf-merriweather
-      - ttf-carlito
       - ttf-caladea
       - ttf-courier-prime
       - ttf-iosevka

@@ -7,19 +7,12 @@
   with_items:
     - zathura-pdf-mupdf
     - zathura-ps
-    - zathura-cb
-    - zathura-djvu
 
 - name: Set Zathura as default PDF viewer
   lineinfile: dest=/etc/xdg/mimeapps.list
               regexp=^application/pdf
               state=present
               line="application/pdf=zathura.desktop"
-
-- name: Install Zathura epub
-  aur: name=zathura-epub-git user={{ user.name }}
-  tags:
-    - aur
 
 - name: Install enscript
   pacman: name=enscript state=present
@@ -33,6 +26,9 @@
 - name: Install texlive-core
   pacman: name=texlive-core state=present
 
+- name: Install texlive-latexextra
+  pacman: name=texlive-latexextra state=present
+
 - name: Install masterpdfeditor
   aur: name=masterpdfeditor user={{ user.name }}
   tags:
@@ -42,6 +38,6 @@
   pacman: name=pdfgrep state=present
 
 - name: Install visidata
-  aur: name=visidata-git user={{ user.name }}
+  aur: name=visidata user={{ user.name }}
   tags:
     - aur

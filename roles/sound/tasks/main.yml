@@ -38,9 +38,8 @@
     - pulseaudio
 
 - name: Install pulsemixer
-  aur: name=pulsemixer user={{ user.name }}
+  pacman: name=pulsemixer state=present
   tags:
-    - aur
     - pulseaudio
 
 - name: Install pasystray
@@ -60,4 +59,3 @@
   tags:
     - aur
     - pulseaudio
-
