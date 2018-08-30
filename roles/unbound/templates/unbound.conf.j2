@@ -5,13 +5,10 @@ server:
   use-syslog: yes
   do-not-query-localhost: no
   access-control: 0.0.0.0/8 allow
+  {% if unbound.tls %}tls-upstream: yes{% endif %}
 
   # Set root DNS servers.
   root-hints: "/etc/unbound/root.hints"
-
-  # Block hosts serving advertisements, trackers, etc.
-  # https://github.com/jodrell/unbound-block-hosts/
-  include: /etc/unbound/local-blocking-data.conf
 
   # RFC1918 networks are private and should not be returned.
   private-address: 10.0.0.0/8
@@ -21,11 +18,11 @@ server:
   private-address: fd00::/8
   private-address: fe80::/10
 
-{% if nameservers %}
+{% if unbound.nameservers %}
   # Define DNS servers to forward queries to.
   forward-zone:
     name: "."
-    {% for nameserver in nameservers %}
+    {% for nameserver in unbound.nameservers %}
     forward-addr: {{ nameserver }}
     {% endfor %}
 {% endif %}
