@@ -36,8 +36,3 @@
   with_items: "{{ aur_fonts }}"
   tags:
     - aur
-
-
-
-  tags:
-    - aur
