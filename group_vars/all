@@ -224,7 +224,6 @@ base_fonts:
     - noto-fonts
     - ttf-dejavu
     - ttf-liberation
-    - ttf-symbola
     - gsfonts
     - tex-gyre-fonts
     - ttf-droid
@@ -238,6 +237,7 @@ aur_fonts:
     - ttf-quintessential
     - ttf-oswald
     - ttf-opensans
+    - ttf-symbola
     - ttf-merriweather-sans
     - ttf-merriweather
     - ttf-caladea
