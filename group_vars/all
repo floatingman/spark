@@ -32,7 +32,7 @@ aur:
 ssh:
     port: 22
     user_key: /root/.ssh/id_rsa
-    enable_sshd: True
+    enable_sshd: False
 
 gnupg:
     enable_agent: True
@@ -63,6 +63,8 @@ video_drivers:
 
 base_packages:
     - base-devel
+    - pacman-contrib
+    - fwupd
     - tmux
     - git
     - rsync
@@ -95,6 +97,7 @@ base_packages:
     - etckeeper
     - screen
     - units
+    - python-pipenv
 
 python_packages:
     - python2
@@ -142,11 +145,11 @@ tor:
 localtime:
     run_on: trusted
 
-nameservers:
-    - 192.168.0.1     # Internal
-    - 8.8.8.8         # google
-    - 156.154.71.1    # UltraDNS-2
-    - 129.250.35.250  # Hurricane Electric
+unbound:
+    tls: True
+    nameservers:
+        - 1.1.1.1@853  # Cloudflare
+        - 9.9.9.9@853  # Quad9
 
 bluetooth:
     disable: False
@@ -167,4 +170,77 @@ himawaripy:
     run_on: trusted
     flags: --auto-offset --level 4
 
-middle_click_scroll: True
+libinput:
+    middle_click_scroll: 12
+    button_mapping: "1 2 3 4 5 6 7 8 9 10 11 2"
+
+display_manager: lightdm
+gdm:
+    sound: False
+    font_scaling_factor: 1
+    logo_path: False
+    touchpad:
+        tap_to_click: True
+    accessibility_menu: True
+
+desktop_environment: i3
+gnome:
+    night_light:
+        enabled: True
+        color_temperature: 4000 # in Kelvin
+    date_time:
+        show_date_in_clock: True
+        show_weeks_in_calendar: True
+    battery:
+        show_percentage: True
+    power:
+        sleep_timeout_when_computer_on_ac: 3600 # in seconds
+        timeout_action_when_computer_on_ac: suspend
+        sleep_timeout_when_computer_on_battery: 1800 # in seconds
+        timeout_action_when_computer_on_battery: suspend
+        power_button_action: suspend
+    touchpad:
+        tap_to_click: True
+        natural_scrolling: True
+        disabled_while_typing: True
+    online_accounts_support: True
+    lock_screen:
+        automatic_lock: True
+        lock_screen_after_blank_for: 0 # in seconds
+        show_notifications: True
+        show_full_name_of_user: True
+    theme:
+        theme_name: Adwaita
+        icon_theme_name: Adwaita
+        font_name: Dejavu Sans 13
+        dark_variant: True
+    gnome_shell:
+        disable_top_left_hot_corner: False
+        extensions_support: True
+
+base_fonts:
+    - terminus-font
+    - cantarell-fonts
+    - noto-fonts
+    - ttf-dejavu
+    - ttf-liberation
+    - ttf-symbola
+    - gsfonts
+    - tex-gyre-fonts
+    - ttf-droid
+    - ttf-ubuntu-font-family
+    - ttf-inconsolata
+    - ttf-hack
+    - ttf-carlito
+
+aur_fonts:
+    - ttf-signika
+    - ttf-quintessential
+    - ttf-oswald
+    - ttf-opensans
+    - ttf-merriweather-sans
+    - ttf-merriweather
+    - ttf-caladea
+    - ttf-courier-prime
+    - ttf-heuristica
+    - ttf-iosevka

@@ -26,32 +26,18 @@
 - name: Push font substitutions
   copy: src=local.conf dest=/etc/fonts/local.conf
 
-- name: Install core fonts
+
+- name: Install base fonts
   pacman: name={{ item }} state=present
-  with_items:
-      - terminus-font
-      - cantarell-fonts
-      - noto-fonts
-      - ttf-dejavu
-      - ttf-liberation
-      - gsfonts
-      - tex-gyre-fonts
-      - ttf-droid
-      - ttf-ubuntu-font-family
-      - ttf-hack
-      - ttf-carlito
+  with_items: "{{ base_fonts }}"
 
 - name: Install AUR fonts
-  aur: name={{ item }} user={{ user.name }}
-  with_items:
-      - ttf-signika
-      - ttf-quintessential
-      - ttf-oswald
-      - ttf-opensans
-      - ttf-merriweather-sans
-      - ttf-merriweather
-      - ttf-caladea
-      - ttf-courier-prime
-      - ttf-iosevka
+  aur: name= {{ item }} user={{ user.name }}
+  with_items: "{{ aur_fonts }}"
+  tags:
+    - aur
+
+
+
   tags:
     - aur

@@ -1,12 +1,8 @@
 ---
-- name: Install NetworkManager-noscan
-  aur: name=networkmanager-noscan user={{ user.name }}
-  tags:
-    - aur
-
-- name: Install NetworkManage extras
+- name: Install NetworkManager and dependencies
   pacman: name={{ item }} state=present
   with_items:
+      - networkmanager
       - networkmanager-openvpn
       - network-manager-applet
       - xfce4-notifyd
@@ -26,6 +22,10 @@
 
 - name: Push trusted network dispatcher
   copy: src=nmtrust/dispatcher/10trust dest=/etc/NetworkManager/dispatcher.d/10trust mode=0755
+
+- name: Push connectivity check config
+  template: src=connectivity.conf.j2 dest=/etc/NetworkManager/conf.d/20-connectivity.conf
+  when: network.conn_check is defined
 
 - name: Enable and start NetworkManager
   service: name=NetworkManager.service enabled=yes state=started
