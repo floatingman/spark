@@ -174,7 +174,7 @@ libinput:
     middle_click_scroll: 12
     button_mapping: "1 2 3 4 5 6 7 8 9 10 11 2"
 
-display_manager: lightdm
+display_manager: gdm
 gdm:
     sound: False
     font_scaling_factor: 1
@@ -183,7 +183,7 @@ gdm:
         tap_to_click: True
     accessibility_menu: True
 
-desktop_environment: i3
+desktop_environment: gnome
 gnome:
     night_light:
         enabled: True
@@ -244,3 +244,5 @@ aur_fonts:
     - ttf-courier-prime
     - ttf-heuristica
     - ttf-iosevka
+
+kernel_parameters: "quiet consoleblank=60 i915.enable_psr=2"
