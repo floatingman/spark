@@ -28,6 +28,7 @@ aur:
         - myrepos
         - ctmg
         - emacs-git
+        - jetbrains-toolbox
 
 ssh:
     port: 22
@@ -60,6 +61,7 @@ editors:
 
 video_drivers:
     - libva-intel-driver
+    - nvidia
 
 base_packages:
     - base-devel
