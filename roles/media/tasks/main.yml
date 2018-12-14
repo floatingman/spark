@@ -26,12 +26,9 @@
     - opus-tools
 
 - name: Install Metadata Anonymisation Toolkit and dependencies
-  aur: name={{ item }} user={{ user.name }}
-  with_items:
-    - hachoir-core
-    - hachoir-parser
-    - mat
+  aur: name=mat2 user={{ user.name }}
   tags:
+    - mat
     - aur
 
 - name: Install youtube-dl

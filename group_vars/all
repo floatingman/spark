@@ -98,6 +98,7 @@ base_packages:
     - screen
     - units
     - python-pipenv
+    - fasd
 
 python_packages:
     - python2

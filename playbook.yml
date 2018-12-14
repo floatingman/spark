@@ -65,8 +65,6 @@
     - { role: bluetooth, tags: ['bluetooth'], when: "bluetooth is defined" }
     - { role: python, tags: ['python'] }
     - { role: mongodb, tags: ['mongodb'] }
-    - { role: intellij, tags: ['intellij'] }
-    - { role: pycharm, tags: ['pycharm'] }
     - { role: haskell, tags: ['haskell'] }
     - { role: wttr, tags: ['wttr'] }
     - { role: hostsctl, tags: ['hostsctl'], when: "hostsctl is defined" }
