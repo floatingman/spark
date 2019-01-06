@@ -29,6 +29,7 @@ aur:
         - ctmg
         - emacs-git
         - jetbrains-toolbox
+        - visual-studio-code-bin
 
 ssh:
     port: 22
@@ -101,6 +102,7 @@ base_packages:
     - units
     - python-pipenv
     - fasd
+    - ripgrep
 
 python_packages:
     - python2
@@ -116,7 +118,7 @@ filesystem_packages:
     - exfat-utils
 
 browser_choices:
-    - firefox -P default
+    - firefox -P Default
     - firefox -P work
     - chromium
     - tor-browser-en
@@ -249,3 +251,24 @@ aur_fonts:
     - ttf-iosevka
 
 kernel_parameters: "quiet consoleblank=60 i915.enable_psr=2"
+
+sdkman:
+  sdkman_user: "{{ user.name }}"
+  sdkman_group: "{{ user.group }}"
+  sdkman_auto_answer: true
+  sdkman_update: true
+  sdkman_install_packages:
+    - { candidate: maven, version: 3.6.0}
+    - { candidate: java, version: 11.0.1-open }
+    - { candidate: groovy, version: 2.5.4 }
+  sdkman_defaults:
+    maven: '3.6.0'
+    java: '11.0.1-open'
+    groovy: '2.5.4'
+  sdkman_flush_caches_before:
+    - temp
+  sdkman_flush_caches_after:
+    - archives
+    - broadcast
+    - candidates
+    - temp
