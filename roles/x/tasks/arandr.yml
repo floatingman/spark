@@ -1,0 +1,5 @@
+---
+- name: Install arandr
+  pacman: name=arandr state=present
+  tags:
+    - arandr

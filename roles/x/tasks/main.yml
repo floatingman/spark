@@ -29,5 +29,6 @@
 - include: volwheel.yml
 - include: autorandr.yml
 - include: srandrd.yml
+- include: arandr.yml
 - include: termite.yml
 - include: autocutsel.yml
