@@ -33,3 +33,6 @@
 
 - name: Install youtube-dl
   pacman: name=youtube-dl state=present
+
+- name: Install youtube-viewer
+  pacman: name=youtube-viewer state=present
