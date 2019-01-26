@@ -252,6 +252,7 @@ base_fonts:
     - ttf-inconsolata
     - ttf-hack
     - ttf-carlito
+    - ttf-fira-code
 
 aur_fonts:
     - ttf-signika
@@ -265,6 +266,9 @@ aur_fonts:
     - ttf-courier-prime
     - ttf-heuristica
     - ttf-iosevka
+    - ttf-iosevka
+    - ttf-emojione
+    - ttf-symbola
 
 kernel_parameters: "quiet consoleblank=60 i915.enable_psr=2"
 

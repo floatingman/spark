@@ -30,6 +30,14 @@
 - name: Install xwallpaper
   pacman: name=xwallpaper state=present
 
+- name: Install xssstate
+  pacman: name=xssstate state=present
+
+- name: Install Gruvbox gtk theme
+  aur: name=gtk-theme-arc-gruvbox-git user={{ user.name }}
+  tags:
+    - aur
+
 - include: sxhkd.yml
 - include: unclutter.yml
 - include: volwheel.yml
