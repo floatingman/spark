@@ -33,6 +33,9 @@
 - name: Install xssstate
   pacman: name=xssstate state=present
 
+- name: Install xcape
+  pacman: name=xcape state=present
+
 - name: Install Gruvbox gtk theme
   aur: name=gtk-theme-arc-gruvbox-git user={{ user.name }}
   tags:
