@@ -104,6 +104,7 @@ base_packages:
     - python-pipenv
     - fasd
     - ripgrep
+    - shellcheck
 
 python_packages:
     - python2
