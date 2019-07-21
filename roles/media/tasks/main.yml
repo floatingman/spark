@@ -26,7 +26,10 @@
     - opus-tools
 
 - name: Install Metadata Anonymisation Toolkit and dependencies
-  aur: name=mat2 user={{ user.name }}
+  aur:
+    name: mat2
+    user: "{{ user.name }}"
+    skip_pgp: yes
   tags:
     - mat
     - aur

@@ -3,7 +3,6 @@
   pacman: name={{ item }} state=present
   with_items:
     - net-tools
-    - qt4
     - virtualbox
     - virtualbox-guest-iso
     - virtualbox-guest-utils

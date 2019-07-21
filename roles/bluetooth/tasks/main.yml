@@ -1,12 +1,32 @@
+---
+- name: Install PulseAudio bluetooth with LDAC/aptX support
+  aur:
+    name:
+      - libldac
+      - pulseaudio-modules-bt-git
+    user: "{{ user.name }}"
+  tags:
+    - aur
+  notify:
+    - restart pulse as user
+
 - name: Install bluetooth libraries and tools
-  pacman: name={{ item }} state=present
-  with_items:
-      - pulseaudio-bluetooth
+  pacman:
+    name:
       - bluez
       - bluez-libs
       - bluez-utils
-      - bluez-firmware
       - blueman
+    state: present
+  notify:
+    - restart pulse as user
+
+- name: auto-switch between HSP/HSF an A2DP
+  lineinfile:
+    dest: /etc/pulse/default.pa
+    regex: "^load-module module-bluetooth-policy"
+    state: present
+    line: "load-module module-bluetooth-policy auto_switch=2"
   notify:
     - restart pulse as user
 
