@@ -24,8 +24,8 @@
 - name: Add user to video group
   user: name={{ user.name }} groups=video append=yes
 
-- name: Install xcompmgr
-  pacman: name=xcompmgr state=present
+- name: Install compton
+  pacman: name=compton state=present
 
 - name: Install xwallpaper
   pacman: name=xwallpaper state=present
