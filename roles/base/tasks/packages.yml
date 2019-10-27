@@ -1,18 +1,14 @@
 ---
 - name: Install universal base packages
-  pacman: name={{ item }} state=present
-  with_items: "{{ base_packages }}"
+  pacman:
+    name: "{{ base_packages }}"
+    state: present
   tags:
     - packages
 
 - name: Create pacman hook directory
   file: path=/etc/pacman.d/hooks
         state=directory
-  tags:
-    - packages
-
-- name: Push pacman mirror list update hook
-  copy: src=mirrorlist.hook dest=/etc/pacman.d/hooks/mirrorlist.hook
   tags:
     - packages
 
@@ -31,15 +27,10 @@
     - aur
     - packages
 
-- name: Install cower
-  aur: name=cower user={{ user.name }} skip_pgp=yes
-  tags:
-    - aur
-    - packages
-
 - name: Install AUR base packages
-  aur: name={{ item }} user={{ user.name }}
-  with_items: "{{ aur.packages }}"
+  aur:
+    name: "{{ aur.packages }}"
+    user: "{{ user.name }}"
   tags:
     - aur
     - packages

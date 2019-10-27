@@ -1,10 +1,11 @@
 ---
 - name: Install zip archive utilities
-  pacman: name={{ item }} state=present
-  with_items:
-    - zip
-    - unzip
-    - p7zip
+  pacman:
+    name:
+      - zip
+      - unzip
+      - p7zip
+    state: present
   tags:
     - zip
 
@@ -21,7 +22,7 @@
 - name: Install hashdeep
   pacman: name=hashdeep state=present
   tags:
-     - hashdeep
+    - hashdeep
 
 - name: Install par2cmdline
   pacman: name=par2cmdline state=present
@@ -37,3 +38,9 @@
   pacman: name=lesspipe state=present
   tags:
     - lesspipe
+
+- name: Install geteltorito
+  aur: name=geteltorito user={{ user.name }}
+  tags:
+    - aur
+    - geteltorito

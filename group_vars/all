@@ -35,7 +35,7 @@ aur:
 
 ssh:
     port: 22
-    user_key: /root/.ssh/id_ed25519
+    user_key: /root/id_rsa
     enable_sshd: False
 
 gnupg:
@@ -107,6 +107,7 @@ base_packages:
     - ripgrep
     - shellcheck
     - scrot
+    - colordiff
 
 python_packages:
     - python2
@@ -122,7 +123,7 @@ filesystem_packages:
     - exfat-utils
 
 browser_choices:
-    - firefox -P Accounts   
+    - firefox -P Accounts
     - firefox -P work
     - chromium
     - tor-browser-en
@@ -156,6 +157,7 @@ localtime:
 
 unbound:
     tls: True
+    roothints_update: trusted
     nameservers:
         - 1.1.1.1@853  # Cloudflare
         - 9.9.9.9@853  # Quad9
