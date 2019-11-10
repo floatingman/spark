@@ -1,43 +1,66 @@
 ---
 - name: Install LibreOffice
-  pacman: name=libreoffice-fresh state=present
-
-- name: Install Zathura and dependencies
-  pacman: name={{ item }} state=present
-  with_items:
-    - zathura-pdf-mupdf
-    - zathura-ps
-
-- name: Set Zathura as default PDF viewer
-  lineinfile: dest=/etc/xdg/mimeapps.list
-              regexp=^application/pdf
-              state=present
-              line="application/pdf=zathura.desktop"
+  pacman:
+    name: libreoffice-fresh
+    state: present
 
 - name: Install enscript
-  pacman: name=enscript state=present
+  pacman:
+    name: enscript
+    state: present
 
 - name: Install Simple Scan
-  pacman: name=simple-scan state=present
+  pacman:
+    name: simple-scan
+    state: present
 
-- name: Install pandoc
-  pacman: name=pandoc state=present
+- name: Install pandoc and dependencies
+  pacman:
+    name:
+      - pandoc
+      - pandoc-citeproc
+    state: present
 
 - name: Install texlive-core
-  pacman: name=texlive-core state=present
+  pacman:
+    name: texlive-core
+    state: present
 
 - name: Install texlive-latexextra
-  pacman: name=texlive-latexextra state=present
-
-- name: Install masterpdfeditor
-  aur: name=masterpdfeditor user={{ user.name }}
-  tags:
-    - aur
-
-- name: Install pdfgrep
-  pacman: name=pdfgrep state=present
+  pacman:
+    name: texlive-latexextra
+    state: present
 
 - name: Install visidata
-  aur: name=visidata user={{ user.name }}
-  tags:
-    - aur
+  aur:
+    name: visidata
+    user: "{{ user.name }}"
+    tags:
+      - aur
+
+- name: Install additional libraries for visidata
+  pacman:
+    name:
+      - python-xlrd
+      - python-pandas
+    state: present
+
+- name: Install qalculate
+  pacman:
+    name: qalculate-gtk
+    state: present
+
+- name: Install undertime and dependencies
+  aur:
+    name:
+      - python-dateparser
+      - python-undertime
+    user: "{{ user.name }}"
+    tags:
+      - aur
+
+- name: Install GNU Plot
+  pacman:
+    name: gnuplot
+    state: present
+
