@@ -235,12 +235,12 @@ gnome:
         extensions_support: True
 
 base_fonts:
-    - terminus-font
     - cantarell-fonts
+    - gsfonts
     - noto-fonts
     - ttf-dejavu
+    - terminus-font
     - ttf-liberation
-    - gsfonts
     - tex-gyre-fonts
     - ttf-droid
     - ttf-ubuntu-font-family
@@ -248,21 +248,20 @@ base_fonts:
     - ttf-hack
     - ttf-carlito
     - ttf-fira-code
+    - ttf-opensans
+    - ttf-caladea
+    - ttf-joypixels
 
 aur_fonts:
     - ttf-signika
     - ttf-quintessential
     - ttf-oswald
-    - ttf-opensans
     - ttf-symbola
     - ttf-merriweather-sans
     - ttf-merriweather
-    - ttf-caladea
     - ttf-courier-prime
     - ttf-heuristica
     - ttf-iosevka
-    - ttf-iosevka
-    - ttf-emojione
     - ttf-symbola
 
 kernel_parameters: "quiet consoleblank=60 i915.enable_psr=2"
