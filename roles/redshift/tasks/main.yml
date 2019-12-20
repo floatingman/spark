@@ -1,8 +1,9 @@
 ---
 - name: Install RedShift and dependencies
-  pacman: name={{ item }} state=present
-  with_items:
-    - librsvg
-    - python-gobject
-    - python-xdg
-    - redshift
+  pacman:
+    name:
+      - librsvg
+      - python-gobject
+      - python-xdg
+      - redshift
+    state: present

@@ -1,6 +1,5 @@
 ---
 - name: Install unclutter
-  aur: name=unclutter-xfixes-git user={{ user.name }}
+  pacman: name=unclutter state=present
   tags:
     - unclutter
-    - aur

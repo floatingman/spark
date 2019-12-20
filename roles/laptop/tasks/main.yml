@@ -28,5 +28,28 @@
 
 - name: Install light
   pacman: name=light state=present
+
+- name: Install powertop
+  pacman: name=powertop state=present
+
+- name: Install powerstat
+  aur: name=powerstat-git user={{ user.name }}
   tags:
-    - light
+    - aur
+
+- name: Install cmake for battery-stats
+  pacman: name=cmake state=present
+
+- name: Install battery-stats
+  aur:
+    name: battery-stats-git
+    user: "{{ user.name }}"
+  tags:
+    - aur
+
+- name: Install battop
+  aur:
+    name: battop
+    user: "{{ user.name }}"
+  tags:
+    - aur

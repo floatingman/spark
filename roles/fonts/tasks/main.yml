@@ -37,12 +37,10 @@
     src: local.conf
     dest: /etc/fonts/local.conf
 
-
 - name: Install base fonts
   pacman:
     name: "{{ base_fonts }}"
     state: present
-  with_items: "{{ base_fonts }}"
 
 - name: Install AUR fonts
   aur:

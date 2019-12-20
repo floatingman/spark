@@ -20,8 +20,6 @@ aur:
     packages:
         - yay
         - downgrade
-        - fzf-git
-        - fzf-extras-git
         - zplug
         - rxvt-unicode-patched
         - miller
@@ -108,6 +106,8 @@ base_packages:
     - shellcheck
     - scrot
     - colordiff
+    - fzf
+    - fzf-extras
 
 python_packages:
     - python2

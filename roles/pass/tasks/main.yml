@@ -1,9 +1,20 @@
 ---
 - name: Install pass
-  pacman: name=pass state=present
+  pacman:
+    name: pass
+    state: present
 
 - name: Install pass-otp
-  pacman: name=pass-otp state=present
+  pacman:
+    name: pass-otp
+    state: present
+
+- name: Install rofi-pass
+  pacman:
+    name: rofi-pass
+    state: present
+  tags:
+    - rofi
 
 - name: Install pass-update
   aur:
@@ -13,10 +24,9 @@
   tags:
     - aur
 
-- name: Install rofi-pass
-  pacman: name=rofi-pass state=present
+- name: Install pwgen-passphrase
+  aur:
+    name: pwgen-passphrase
+    user: "{{ user.name }}"
   tags:
-    - rofi
-
-- name: Install lastpass-cli
-  pacman: name=lastpass-cli state=present
+    - aur

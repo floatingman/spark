@@ -21,4 +21,3 @@ notify-send "Loading..." "$source"
 if ! mpv "$source"; then
     notify-send --urgency=critical "Failed to play" "$source"
 fi
-/

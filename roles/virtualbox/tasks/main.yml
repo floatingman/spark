@@ -1,20 +1,19 @@
 ---
 - name: Install VirtualBox and dependencies
-  pacman: name={{ item }} state=present
-  with_items:
-    - net-tools
-    - virtualbox
-    - virtualbox-guest-iso
-    - virtualbox-guest-utils
-    - virtualbox-host-dkms
+  pacman:
+    name:
+      - net-tools
+      - virtualbox
+      - virtualbox-guest-iso
+      - virtualbox-host-dkms
+    state: present
 
 - name: Install VirtualBox extensions
   aur: name=virtualbox-ext-oracle user={{ user.name }}
   tags:
     - aur
 
-- name: Copy kernel modules to load
-  copy: src=modules.conf dest=/etc/modules-load.d/virtualbox.conf
-
 - name: Add the user to vboxusers group
   user: name={{ user.name }} groups=vboxusers append=yes
+  tags:
+    - user

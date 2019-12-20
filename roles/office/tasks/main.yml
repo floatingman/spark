@@ -31,33 +31,22 @@
     name: texlive-latexextra
     state: present
 
-- name: Install visidata
-  aur:
-    name: visidata
-    user: "{{ user.name }}"
-    tags:
-      - aur
-
-- name: Install additional libraries for visidata
-  pacman:
-    name:
-      - python-xlrd
-      - python-pandas
-    state: present
-
 - name: Install qalculate
   pacman:
     name: qalculate-gtk
     state: present
 
-- name: Install undertime and dependencies
+- name: Install undertime dependencies
+  pacman:
+    name: python-dateparser
+    state: present
+
+- name: Install undertime
   aur:
-    name:
-      - python-dateparser
-      - python-undertime
+    name: python-undertime
     user: "{{ user.name }}"
-    tags:
-      - aur
+  tags:
+     - aur
 
 - name: Install GNU Plot
   pacman:
