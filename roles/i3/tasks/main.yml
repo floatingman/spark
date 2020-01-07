@@ -4,9 +4,13 @@
     name:
       - i3-wm
       - i3blocks
-      - i3lock
       - i3status
     state: present
+
+- name: Install betterlockscreen
+  aur:
+    name: betterlockscreen
+    user: "{{ user.name }}"
 
 - name: Install py3status
   pacman: name=py3status state=present
