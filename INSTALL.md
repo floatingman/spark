@@ -10,6 +10,10 @@ while only /boot/efi is left unecrypted.
 
 Use your system's setup interface to choose UEFI or legacy/BIOS mode as appropriate.
 
+Note that this guide assumes you are performing the install to `/dev/sda`. In
+some cases, you may find that your USB install disk claimed `/dev/sda` and you
+want to install to `/dev/sdb`. Confirm which disk is which before proceeding.
+
 On some newer systems (e.g. Dell XPS 15), set SATA operation mode to AHCI.
 
 Boot into the Arch installer.
@@ -23,7 +27,7 @@ Connect to the Internet.
 Verify that the [system clock is up to date][8].
 
     $ timedatectl set-ntp true
-    
+
 (BIOS mode) Create a single partition for LUKS.
 
     $ parted -s /dev/sda mklabel msdos
@@ -35,33 +39,28 @@ Verify that the [system clock is up to date][8].
     $ parted -s /dev/sda mkpart primary fat32 1MiB 513MiB
     $ parted -s /dev/sda set 1 boot on
     $ parted -s /dev/sda set 1 esp on
-    $ parted -s /dev/sda mkpart primary 513MiB 1024MiB
-    $ parted -s /dev/sda mkpart primary 1024MiB 100%
+    $ parted -s /dev/sda mkpart primary 513MiB 100%
     $ mkfs.vfat -F32 /dev/nvme0n1p1
 
 Create and mount the encrypted root filesystem. Note that for UEFI systems
 this will be partition 3.
 
-    $ cryptsetup luksFormat /dev/sda1
+    $ cryptsetup luksFormat --type luks1 /dev/sda1
     $ cryptsetup luksOpen /dev/sda1 lvm
     $ pvcreate /dev/mapper/lvm
     $ vgcreate arch /dev/mapper/lvm
     $ lvcreate -L 8G arch -n swap
-    $ lvcreate -L 30G arch -n root
-    $ lvcreate -l +100%FREE arch -n home
+    $ lvcreate -l +100%FREE arch -n root
     $ lvdisplay
     $ mkswap -L swap /dev/mapper/arch-swap
     $ mkfs.ext4 /dev/mapper/arch-root
-    $ mkfs.ext4 /dev/mapper/arch-home
     $ mount /dev/mapper/arch-root /mnt
-    $ mkdir /mnt/home
-    $ mount /dev/mapper/arch-home /mnt/home
     $ swapon /dev/mapper/arch-swap
 
 (UEFI mode) Encrypt the boot partition using a separate passphrase from
 the root partition, then mount the boot and EFI partitions.
 
-    $ cryptsetup luksFormat /dev/sda2
+    $ cryptsetup luksFormat --type luks1 /dev/sda2
     $ cryptsetup luksOpen /dev/sda2 cryptboot
     $ mkfs.ext4 /dev/mapper/cryptboot
     $ mkdir /mnt/boot
@@ -75,7 +74,7 @@ Optionally [edit the mirror list][9].
 
 Install the [base system][10].
 
-    $ pacstrap -i /mnt base base-devel net-tools wireless_tools dialog wpa_supplicant git grub ansible
+    $ pacstrap -i /mnt base base-devel linux linux-firmware lvm2 dhcpcd net-tools wireless_tools dialog wpa_supplicant vi git grub ansible
     (UEFI mode) $ pacstrap /mnt efibootmgr
 
 Generate and verify [fstab][11].
@@ -86,11 +85,14 @@ Generate and verify [fstab][11].
 Change root into the base install and perform [base configuration tasks][12].
 
     $ arch-chroot /mnt /bin/bash
-    $ echo en_US.UTF-8 UTF-8 >> /etc/locale.gen
-    $ locale-gen
-    $ echo LANG=en_US.UTF-8 > /etc/locale.conf
     $ export LANG=en_US.UTF-8
-    $ ln -s /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
+    $ export TIME=en_DK.UTF-8
+    $ echo $LANG UTF-8 >> /etc/locale.gen
+    $ echo $TIME UTF-8 >> /etc/locale.gen
+    $ locale-gen
+    $ echo LANG=$LANG > /etc/locale.conf
+    $ echo LC_TIME=$TIME >> /etc/locale.conf
+    $ ln -fs /usr/share/zoneinfo/America/Los_Angeles /etc/localtime
     $ hwclock --systohc --utc
     $ echo mymachine > /etc/hostname
     $ systemctl enable dhcpcd.service
@@ -98,7 +100,7 @@ Change root into the base install and perform [base configuration tasks][12].
 
 Set your mkinitcpio encrypt/lvm2 hooks and rebuild.
 
-    $ sed -i 's/^HOOKS=.*/HOOKS="base udev autodetect modconf block keyboard encrypt lvm2 resume filesystems fsck"/' /etc/mkinitcpio.conf
+    $ sed -i 's/^HOOKS=.*/HOOKS=(base udev autodetect modconf block keyboard encrypt lvm2 resume filesystems fsck)/' /etc/mkinitcpio.conf
     $ mkinitcpio -p linux
 
 (BIOS mode) Add a keyfile to decrypt the root volume and properly set the hooks.
@@ -106,7 +108,7 @@ Set your mkinitcpio encrypt/lvm2 hooks and rebuild.
     $ dd bs=512 count=8 if=/dev/urandom of=/crypto_keyfile.bin
     $ cryptsetup luksAddKey /dev/sda1 /crypto_keyfile.bin
     $ chmod 000 /crypto_keyfile.bin
-    $ sed -i 's/^FILES=.*/FILES="\/crypto_keyfile.bin"/' /etc/mkinitcpio.conf
+    $ sed -i 's/^FILES=.*/FILES=(\/crypto_keyfile.bin)/' /etc/mkinitcpio.conf
     $ mkinitcpio -p linux
 
 (UEFI mode) Add a keyfile to decrypt and mount the boot volume during startup.
@@ -120,15 +122,16 @@ Configure GRUB.
 
     $ echo GRUB_ENABLE_CRYPTODISK=y >> /etc/default/grub
 
-    # BIOS mode
-    $ sed -i 's/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX="cryptdevice=\/dev\/sda1:lvm:allow-discards resume=\/dev\/mapper\/arch-swap"/' /etc/default/grub
-    $ grub-mkconfig -o /boot/grub/grub.cfg
+    # BIOS mode - set the UUID of the encrypted root device
+    $ ROOTUUID=$(blkid /dev/sda1 | awk '{print $2}' | cut -d '"' -f2)
+    $ sed -i "s/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID="$ROOTUUID":lvm:allow-discards resume=\/dev\/mapper\/arch-swap\"/" /etc/default/grub
     $ grub-install /dev/sda
+    $ grub-mkconfig -o /boot/grub/grub.cfg
     $ chmod -R g-rwx,o-rwx /boot
 
-    # UEFI mode - set the UUID of the encrpyted root device
-    # e.g. blkid /dev/sda3 | awk '{print $3}'
-    $ sed -i 's/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX="cryptdevice=UUID=<your-rootdevice-UID>:lvm:allow-discards root=\/dev\/mapper\/arch-root resume=\/dev\/mapper\/arch-swap"/' /etc/default/grub
+    # UEFI mode - set the UUID of the encrypted root device
+    $ ROOTUUID=$(blkid /dev/sda3 | awk '{print $2}' | cut -d '"' -f2)
+    $ sed -i "s/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID="$ROOTUUID":lvm:allow-discards root=\/dev\/mapper\/arch-root resume=\/dev\/mapper\/arch-swap\"/" /etc/default/grub
     $ grub-mkconfig -o /boot/grub/grub.cfg
     $ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub --recheck
     $ chmod -R g-rwx,o-rwx /boot
