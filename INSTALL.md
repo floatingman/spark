@@ -39,8 +39,9 @@ Verify that the [system clock is up to date][8].
     $ parted -s /dev/sda mkpart primary fat32 1MiB 513MiB
     $ parted -s /dev/sda set 1 boot on
     $ parted -s /dev/sda set 1 esp on
-    $ parted -s /dev/sda mkpart primary 513MiB 100%
-    $ mkfs.vfat -F32 /dev/nvme0n1p1
+    $ parted -s /dev/sda mkpart primary 513MiB 1024MiB
+    $ parted -s /dev/sda mkpart primary 1024MiB 100%
+    $ mkfs.vfat -F32 /dev/sda1
 
 Create and mount the encrypted root filesystem. Note that for UEFI systems
 this will be partition 3.
