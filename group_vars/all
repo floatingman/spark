@@ -182,6 +182,7 @@ himawaripy:
 goesimage:
     run_time: 15min
     run_boot_delay: 2min
+    run_on: trusted
     flags: -w -e
 
 libinput:
