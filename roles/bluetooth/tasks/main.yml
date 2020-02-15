@@ -21,12 +21,12 @@
   notify:
     - restart pulse as user
 
-- name: auto-switch between HSP/HSF an A2DP
+- name: Auto-switch between HSP/HSF and A2DP
   lineinfile:
-    dest: /etc/pulse/default.pa
-    regex: "^load-module module-bluetooth-policy"
-    state: present
-    line: "load-module module-bluetooth-policy auto_switch=2"
+      dest: /etc/pulse/default.pa
+      regex: "^load-module module-bluetooth-policy"
+      state: present
+      line: "load-module module-bluetooth-policy auto_switch=2"
   notify:
     - restart pulse as user
 

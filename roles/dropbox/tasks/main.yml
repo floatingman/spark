@@ -3,8 +3,3 @@
   aur: name=dropbox user={{ user.name }}
   tags:
     - aur
-
-- name: Install Dropbox CLI
-  aur: name=dropbox-cli user={{ user.name }}
-  tags:
-    - aur

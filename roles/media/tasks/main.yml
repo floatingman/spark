@@ -27,13 +27,11 @@
     state: present
 
 - name: Install Metadata Anonymisation Toolkit and dependencies
-  aur:
+  pacman:
     name: mat2
-    user: "{{ user.name }}"
-    skip_pgp: yes
+    state: present
   tags:
     - mat
-    - aur
 
 - name: Install youtube-dl
   pacman: name=youtube-dl state=present

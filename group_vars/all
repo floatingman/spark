@@ -8,7 +8,7 @@ user:
         dir: log
         rotate: 8
 
-hostname: optimus
+hostname: sunstreaker
 
 dotfiles:
    url: git@github.com:floatingman/dotfiles.git
@@ -49,7 +49,7 @@ mail:
     sync_on: trusted
 
 network:
-    spoof_mac: False
+    spoof_mac: True
     conn_check:
         interval: 0
     trusted_uuid:
@@ -63,7 +63,6 @@ editors:
 
 video_drivers:
     - libva-intel-driver
-    - nvidia
 
 base_packages:
     - base-devel
@@ -91,7 +90,6 @@ base_packages:
     - pv
     - minicom
     - jq
-    - autojump
     - the_silver_searcher
     - python-docs
     - python2-docs
@@ -107,7 +105,7 @@ base_packages:
     - scrot
     - colordiff
     - fzf
-    - fzf-extras
+    - ctags
 
 python_packages:
     - python2
@@ -256,13 +254,11 @@ aur_fonts:
     - ttf-signika
     - ttf-quintessential
     - ttf-oswald
-    - ttf-symbola
     - ttf-merriweather-sans
     - ttf-merriweather
     - ttf-courier-prime
     - ttf-heuristica
     - ttf-iosevka
-    - ttf-symbola
 
 kernel_parameters: "quiet consoleblank=60 i915.enable_psr=2"
 

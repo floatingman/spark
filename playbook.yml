@@ -20,6 +20,7 @@
     - { role: iptables, tags: ['iptables'] }
     - { role: nettools, tags: ['nettools'] }
     - { role: networkmanager, tags: ['networkmanager'] }
+    - { role: nmtrust, tags: ['nmtrust'] }
     - { role: macchiato, tags: ['macchiato'] }
     - { role: ntp, tags: ['ntp'] }
     - { role: tor, tags: ['tor'], when: "tor is defined" }
@@ -54,7 +55,6 @@
     - { role: borg, tags: ['borg'] }
     - { role: sound, tags: ['sound'] }
     - { role: pim, tags: ['pim'] }
-    - { role: formd, tags: ['formd'] }
     - { role: postgresql, tags: ['postgresql'] }
     - { role: calibre, tags: ['calibre'] }
     - { role: aws, tags: ['aws'] }
