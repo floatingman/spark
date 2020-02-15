@@ -53,9 +53,8 @@ network:
     conn_check:
         interval: 0
     trusted_uuid:
-        - 9c5b22dc-4351-48a2-84ec-dbb7dd7cc4a1
-        - f0b926dd-5cc9-4922-9a00-465c799c767b
-        - 6d05c005-f075-45b8-ad28-81828876ec0e
+      - 7d400962-6031-324b-acc7-5a22c74a35b0
+      - a666b5a1-73ee-4bd4-aa2b-099932cf7c49
 
 editors:
     - gvim
@@ -159,6 +158,14 @@ unbound:
     nameservers:
         - 1.1.1.1@853  # Cloudflare
         - 9.9.9.9@853  # Quad9
+    private_domains:
+        - corp
+        - home
+        - intranet
+        - lan
+        - mesh
+        - private
+    allow_lan_dns: True
 
 bluetooth:
     disable: False
@@ -264,6 +271,12 @@ aur_fonts:
 kernel_parameters: "quiet consoleblank=60 i915.enable_psr=2"
 
 mirrorlist:
+  run_on: trusted
+
+units:
+  run_on: trusted
+
+pkgfile:
   run_on: trusted
 
 sdkman:

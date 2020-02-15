@@ -19,12 +19,13 @@
     - { role: pass, tags: ['pass'] }
     - { role: iptables, tags: ['iptables'] }
     - { role: nettools, tags: ['nettools'] }
+    - { role: openresolv, tags: ['openresolv'] }
     - { role: networkmanager, tags: ['networkmanager'] }
     - { role: nmtrust, tags: ['nmtrust'] }
     - { role: macchiato, tags: ['macchiato'] }
     - { role: ntp, tags: ['ntp'] }
     - { role: tor, tags: ['tor'], when: "tor is defined" }
-    #- { role: unbound, tags: ['unbound'] }
+    - { role: unbound, tags: ['unbound'] }
     - { role: editors, tags: ['editors'] }
     - { role: filesystems, tags: ['filesystems'] }
     - { role: archive, tags: ['archive'] }
@@ -71,6 +72,8 @@
     - { role: himawaripy, tags: ['himawaripy'], when "himawaripy is defined" }
     - { role: goesimage, tags: ['goesimage'], when: "goesimage is defined" }
     - { role: mirrorlist, tags: ['mirrorlist'], when: "mirrorlist  is defined" }
+    - { role: pkgfile, tags: ['pkgfile'], when: "pkgfile is defined" }
+    - { role: units, tags: ['units'], when: "units is defined" }
     #- { role: sdkman, tags: ['java'] }
     #- { role: kiwix, tags: ['kiwix'] }
     - { role: r, tags: ['r'] }
