@@ -74,9 +74,10 @@
     - { role: mirrorlist, tags: ['mirrorlist'], when: "mirrorlist  is defined" }
     - { role: pkgfile, tags: ['pkgfile'], when: "pkgfile is defined" }
     - { role: units, tags: ['units'], when: "units is defined" }
+    - { role: android, tags: ['andoid'] }
     #- { role: sdkman, tags: ['java'] }
-    #- { role: kiwix, tags: ['kiwix'] }
     - { role: r, tags: ['r'] }
+    - { role: signal, tags: ['signal'] }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"

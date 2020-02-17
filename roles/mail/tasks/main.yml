@@ -1,16 +1,58 @@
 ---
-- name: Install mutt
-  pacman: name=neomutt state=present
-  tags:
-    - aur
+- name: Install neomutt
+  pacman:
+    name: neomutt
+    state: present
 
-- name: Install urlview
-  aur: name=urlview user={{ user.name }}
-  tags:
-    - aur
+- name: Make neomutt available as mutt
+  file:
+    src: /usr/bin/neomutt
+    dest: /usr/local/bin/mutt
+    state: link
+
+- name: Install urlscan
+  pacman:
+    name: urlscan
+    state: present
 
 - name: Install notmuch
-  pacman: name=notmuch state=present
+  pacman:
+    name: notmuch
+    state: present
+
+- name: Install mutt-ics
+  aur:
+    name: mutt-ics
+    user: "{{ user.name }}"
+  tags:
+    - aur
+
+- name: Push mutt-mailto script
+  copy:
+    src: mutt-mailto.sh
+    dest: /usr/local/bin/mutt-mailto
+    mode: 0755
+
+- name: Create local desktop application dir
+  file:
+    path: /usr/local/share/applications
+    state: directory
+
+- name: Push mutt desktop file
+  copy:
+    src: mutt.desktop
+    dest: /usr/local/share/applications/mutt.desktop
+
+- name: Verify mimeapps.list exists
+  file:
+    path: /etc/xdg/mimeapps.list
+    state: touch
+
+- name: Set mutt as default application for mailto links
+  lineinfile:
+    dest: /etc/xdg/mimeapps.list
+    regexp: "^x-scheme-handler/mailto="
+    line: "x-scheme-handler/mailto=mutt.desktop"
 
 - include: msmtp.yml
 - include: isync.yml
