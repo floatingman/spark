@@ -106,6 +106,7 @@ base_packages:
     - colordiff
     - fzf
     - ctags
+    - discord
 
 python_packages:
     - python2
