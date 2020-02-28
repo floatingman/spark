@@ -6,6 +6,8 @@
     - cli53
 
 - name: Install aws-cli
-  pacman: name=aws-cli state=present
+  pacman:
+    name: aws-cli
+    state: present
   tags:
     - aws-cli

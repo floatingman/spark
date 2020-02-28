@@ -1,13 +1,16 @@
 ---
 - name: Install r language
-  pacman: name=r state=present
+  pacman:
+    name: r
+    state: present
   tags:
     - r
 
 - name: Install tk and tcl
-  pacman: name={{ item }} state=present
-  with_items:
-    - tk
-    - tcl
+  pacman:
+    name:
+      - tk
+      - tcl
+    state: present
   tags:
     - r
