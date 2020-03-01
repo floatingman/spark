@@ -78,6 +78,7 @@
     #- { role: sdkman, tags: ['java'] }
     - { role: r, tags: ['r'] }
     - { role: signal, tags: ['signal'] }
+    - { role: steam, tags: ['steam'] }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"

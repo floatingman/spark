@@ -107,6 +107,7 @@ base_packages:
     - fzf
     - ctags
     - discord
+    - synergy
 
 python_packages:
     - python2
