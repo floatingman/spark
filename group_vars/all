@@ -112,6 +112,7 @@ base_packages:
     - discord
     - synergy
     - smartmontools
+    - prettyping
 
 python_packages:
     - python2
