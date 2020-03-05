@@ -30,6 +30,7 @@ aur:
         - vscodium-bin
         - sc-im
         - htop-vim-git
+        - powershell-preview-bin
 
 ssh:
     port: 22
