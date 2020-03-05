@@ -27,7 +27,7 @@ aur:
         - ctmg
         - emacs-git
         - jetbrains-toolbox
-        - visual-studio-code-bin
+        - vscodium-bin
         - sc-im
         - htop-vim-git
 
