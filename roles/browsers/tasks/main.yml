@@ -11,6 +11,22 @@
   tags:
     - firefox
 
+- name: Install Tridactyl
+  pacman:
+    name: firefox-tridactyl
+    state: present
+  tags:
+    - firefox
+
+- name: Install Tridactyl Native
+  aur:
+    name: firefox-tridactyl-native
+    user: "{{ user.name }}"
+    skip_pgp: yes
+  tags:
+    - aur
+    - firefox
+
 - name: Install Chromium
   pacman:
     name: chromium
