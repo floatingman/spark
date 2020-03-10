@@ -79,6 +79,7 @@
     - { role: r, tags: ['r'] }
     - { role: signal, tags: ['signal'] }
     - { role: steam, tags: ['steam'] }
+    - { role: fun, tags: ['fun'] }
   vars_prompt:
     - name: user_password
       prompt: "Enter desired user password"

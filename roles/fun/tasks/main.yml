@@ -1,0 +1,80 @@
+---
+- name: Install slow locomotive
+  pacman:
+    name: sl
+    state: present
+  tags:
+    - fun
+
+- name: Install cmatrix
+  pacman:
+    name: cmatrix
+    state: present
+  tags:
+    - fun
+
+- name: Install Xeyes
+  pacman:
+    name: xorg-xeyes
+    state: present
+  tags:
+    - fun
+
+- name: Install cowsay
+  pacman:
+    name: cowsay
+    state: present
+  tags:
+    - fun
+
+- name: Install ponysay
+  pacman:
+    name: ponysay
+    state: present
+  tags:
+    - fun
+
+- name: Install fortune
+  pacman:
+    name: fortune-mod
+    state: present
+  tags:
+    - fun
+
+- name: Install some more fortunes
+  aur:
+    name:
+      - fortune-mod-chucknorris
+      - fortune-mod-hitchhiker
+      - fortune-mod-montypython
+      - fortune-mod-firefly
+      - wikiquote-fortune
+      - fortune-mod-southpark
+      - fortune-mod-calvin
+      - fortune-mod-scrubs
+      - fortune-mod-starwars
+      - fortune-mod-oblique-strategies
+    user: "{{ user.name }}"
+  tags:
+    - fun
+    - aur
+
+- name: Install Oneko
+  aur:
+    name:
+      - oneko
+    user: "{{ user.name }}"
+  tags:
+    - fun
+    - aur
+
+- name: Install toilet
+  aur:
+    name:
+      - toilet
+      - toilet-fonts
+    user: "{{ user.name }}"
+  tags:
+    - fun
+    - aur
+
