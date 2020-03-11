@@ -49,6 +49,12 @@
   tags:
     - tor-browser
     - aur
+- name: Install lynx
+  pacman:
+    name: lynx
+    state: present
+  tags:
+    - lynx
 
 - name: Install qutebrowser
   pacman:
