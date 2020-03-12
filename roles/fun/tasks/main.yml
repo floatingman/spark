@@ -78,3 +78,9 @@
     - fun
     - aur
 
+- name: Install asciiquarium
+  pacman:
+    name: asciiquarium
+    state: present
+  tags:
+    - fun
