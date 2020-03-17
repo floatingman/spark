@@ -1,6 +1,8 @@
 ---
 - name: Install go
-  pacman: name=go state=present
+  pacman: 
+    name: go 
+    state: present
 
 - name: Create system go group
   group: name=golang state=present
@@ -12,3 +14,8 @@
 
 - name: Create system go dir
   file: path=/usr/local/go state=directory group=golang mode=0775
+
+- name: Install tinygo
+  pacman:
+    name: tinygo
+    state: present

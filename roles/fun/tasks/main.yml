@@ -84,3 +84,10 @@
     state: present
   tags:
     - fun
+
+- name: Install figlet
+  pacman:
+    name: figlet
+    state: present
+  tags:
+    - fun
