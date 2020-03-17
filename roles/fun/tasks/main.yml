@@ -91,3 +91,10 @@
     state: present
   tags:
     - fun
+
+- name: Install lolcat
+  pacman:
+    name: lolcat
+    state: present
+  tags:
+    - fun
