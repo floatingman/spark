@@ -49,12 +49,21 @@
   tags:
     - tor-browser
     - aur
+
 - name: Install lynx
   pacman:
     name: lynx
     state: present
   tags:
     - lynx
+
+- name: Install Brave browser
+  aur:
+    name: brave-bin
+    user: "{{ user.name }}"
+  tags:
+    - brave
+    - aur
 
 - name: Install qutebrowser
   pacman:

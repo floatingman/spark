@@ -132,6 +132,7 @@ filesystem_packages:
 browser_choices:
     - firefox -P Accounts
     - firefox -P work
+    - brave
     - chromium
     - tor-browser-en
     - play
