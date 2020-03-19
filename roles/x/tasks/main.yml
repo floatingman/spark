@@ -48,5 +48,5 @@
 - include: autorandr.yml
 - include: srandrd.yml
 - include: arandr.yml
-  include: alacritty.yml
+- include: alacritty.yml
 - include: autocutsel.yml

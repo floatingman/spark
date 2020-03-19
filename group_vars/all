@@ -10,6 +10,9 @@ user:
 
 hostname: sunstreaker
 
+binfiles:
+  url: git@github.com:floatingman/bin.git
+
 dotfiles:
    url: git@github.com:floatingman/dotfiles.git
    destination: .dotfiles

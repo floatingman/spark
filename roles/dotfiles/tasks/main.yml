@@ -11,8 +11,24 @@
   become: yes
   become_user: "{{ user.name }}"
 
+- name: Build bashrc
+  command: /home/{{ user.name }}/{{ dotfiles.destination }}/build
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Run Install script
+  command: /home/{{ user.name }}/{{ dotfiles.destination }}/install.sh
+  become: yes
+  become_user: "{{ user.name }}"
+
 - name: Install user dotfiles
   command: rcup -d /home/{{ user.name}}/{{ dotfiles.destination}} {{ dotfiles.rcup_flags }}
   when: dotfiles is defined
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Clone user bins
+  git: repo={{ binfiles.url }} dest=/home/{{ user.name }}/bin accept_hostkey=yes update=no
+  when: binfiles is defined
   become: yes
   become_user: "{{ user.name }}"
