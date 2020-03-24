@@ -38,6 +38,18 @@
 - name: Install xcape
   pacman: name=xcape state=present
 
+- name: Install xvinfo
+  pacman:
+    name: xorg-xvinfo
+    state: present
+
+- name: Install xscreensaver
+  aur:
+    name: xscreensaver-arch-logo
+    user: "{{ user.name }}"
+  tags:
+    - aur
+
 - name: Install Gruvbox gtk theme
   aur: name=gtk-theme-arc-gruvbox-git user={{ user.name }}
   tags:
