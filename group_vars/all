@@ -28,7 +28,6 @@ aur:
         - miller
         - myrepos
         - ctmg
-        - emacs-git
         - jetbrains-toolbox
         - vscodium-bin
         - sc-im
@@ -66,6 +65,7 @@ network:
 editors:
     - gvim
     - neovim
+    - emacs
 
 video_drivers:
     - libva-intel-driver
@@ -118,6 +118,7 @@ base_packages:
     - synergy
     - smartmontools
     - prettyping
+    - ccls
 
 python_packages:
     - python2
