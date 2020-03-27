@@ -22,7 +22,9 @@
 
 - name: Install lazygit
   aur:
-    name: lazygit
+    name:
+      - lazygit
+      - lazydocker
     user: "{{ user.name }}"
   tags:
     - aur

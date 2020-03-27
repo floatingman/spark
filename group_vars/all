@@ -34,6 +34,7 @@ aur:
         - htop-vim-git
         - powershell-preview-bin
         - franz
+        - tmuxinator
 
 ssh:
     port: 22
