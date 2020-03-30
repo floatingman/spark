@@ -1,4 +1,9 @@
 ---
+- name: Install vapoursynth
+  pacman:
+    name: vapoursynth
+    state: present
+
 - name: Install mpv
   aur:
     name: mpv-git

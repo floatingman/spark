@@ -120,6 +120,7 @@ base_packages:
     - smartmontools
     - prettyping
     - ccls
+    - luarocks
 
 python_packages:
     - python2
