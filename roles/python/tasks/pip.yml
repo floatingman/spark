@@ -16,3 +16,10 @@
     - autopep8
   tags:
     - python
+
+- name: Install alacritty colorscheme changer
+  pip:
+    name: git+https://github.com/toggle-corp/alacritty-colorscheme.git
+  tags:
+    - python
+    - alacritty

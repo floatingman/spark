@@ -1,0 +1,19 @@
+---
+- name: Install pyenv
+  pacman:
+    name:
+      - pyenv
+    state: present
+  tags:
+    - python
+    - pyenv
+
+- name: Install pyenv-virtualenv
+  aur:
+    name:
+      - pyenv-virtualenv
+    user: "{{user.name}}"
+  tags:
+    - python
+    - pyenv
+    - aur
