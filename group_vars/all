@@ -278,6 +278,7 @@ base_fonts:
     - ttf-opensans
     - ttf-caladea
     - ttf-joypixels
+    - xorg-fonts-misc
 
 aur_fonts:
     - ttf-signika
@@ -288,6 +289,8 @@ aur_fonts:
     - ttf-courier-prime
     - ttf-heuristica
     - ttf-iosevka
+    - ttf-unifont
+    - siji-git
 
 kernel_parameters: "quiet consoleblank=60 i915.enable_psr=2"
 

@@ -12,6 +12,11 @@
     name: betterlockscreen
     user: "{{ user.name }}"
 
+- name: Install polybar
+  aur:
+    name: polybar-git
+    user: "{{ user.name }}"
+
 - name: Install py3status
   pacman: name=py3status state=present
 
