@@ -294,6 +294,10 @@ aur_fonts:
 
 kernel_parameters: "quiet consoleblank=60 i915.enable_psr=2"
 
+syncthing:
+    run_on: trusted
+    open_ports: true
+
 mirrorlist:
   run_on: trusted
 

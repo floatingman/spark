@@ -62,7 +62,6 @@
     - { role: parcimonie, tags: ['parcimonie'], when: "tor is defined" }
     - { role: localtime, tags: ['localtime'], when: "localtime is defined"  }
     - { role: wormhole, tags: ['wormhole'] }
-    - { role: dropbox, tags: ['dropbox'] }
     - { role: docker, tags: ['docker'] }
     - { role: bluetooth, tags: ['bluetooth'], when: "bluetooth is defined" }
     - { role: python, tags: ['python'] }
@@ -71,6 +70,7 @@
     - { role: hostsctl, tags: ['hostsctl'], when: "hostsctl is defined" }
     - { role: himawaripy, tags: ['himawaripy'], when "himawaripy is defined" }
     - { role: goesimage, tags: ['goesimage'], when: "goesimage is defined" }
+    - { role: syncthing, tags: ['syncthing'], when: "syncthing is defined" }
     - { role: mirrorlist, tags: ['mirrorlist'], when: "mirrorlist  is defined" }
     - { role: pkgfile, tags: ['pkgfile'], when: "pkgfile is defined" }
     - { role: units, tags: ['units'], when: "units is defined" }
