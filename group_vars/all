@@ -123,6 +123,7 @@ base_packages:
     - luarocks
     - vifm
     - broot
+    - fd
 
 python_packages:
     - python2
