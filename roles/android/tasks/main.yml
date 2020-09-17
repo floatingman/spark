@@ -16,3 +16,16 @@
       append: yes
   tags:
     - user
+
+- name: Install android-studio
+  aur:
+    name: android-studio
+    user: "{{ user.name }}"
+    skip_pgp: yes
+  tags:
+    - aur
+
+- name: Install Qemu for Android emulator performance improvements
+  pacman:
+    name: qemu
+    state: present
