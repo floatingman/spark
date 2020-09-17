@@ -29,3 +29,8 @@
   pacman:
     name: qemu
     state: present
+
+- name: Install watchman for react-native development
+  pacman:
+    name: watchman
+    state: present
