@@ -31,7 +31,6 @@ aur:
         - jetbrains-toolbox
         - vscodium-bin
         - sc-im
-        - htop-vim-git
         - powershell-preview-bin
         - franz
         - tmuxinator
@@ -109,7 +108,6 @@ base_packages:
     - python-pipenv
     - fasd
     - termdown
-    - ripgrep
     - shellcheck
     - scrot
     - colordiff

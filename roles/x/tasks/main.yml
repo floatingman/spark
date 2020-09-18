@@ -17,52 +17,43 @@
 - name: Install xorg-sessreg
   pacman: name=xorg-sessreg state=present
 
+- name: Install xorg-xwininfo
+  pacman:
+    name: xorg-xwininfo
+    state: present
+
+- name: Install xautomation
+  pacman:
+    name: xautomation
+    state: present
+
 - name: Install video driver(s)
-  pacman: name={{ item }} state=present
-  with_items: "{{ video_drivers }}"
+  pacman:
+    name: "{{ video_drivers }}"
+    state: present
 
 - name: Add user to video group
   user: name={{ user.name }} groups=video append=yes
-
-- name: Install xcompmgr
-  pacman:
-    name: xcompmgr
-    state: present
-
-- name: Install xwallpaper
-  pacman: name=xwallpaper state=present
-
-- name: Install xssstate
-  pacman: name=xssstate state=present
-
-- name: Install xcape
-  pacman: name=xcape state=present
-
-- name: Install xvinfo
-  pacman:
-    name: xorg-xvinfo
-    state: present
-
-- name: Install xscreensaver and extra screensavers
-  aur:
-    name:
-      - xscreensaver-arch-logo
-      - xscreensaver-aerial
-      - xscreensaver-aerial-videos-1080
-    user: "{{ user.name }}"
   tags:
-    - aur
+    - user
 
-
-- name: Install Gruvbox gtk theme
-  aur: name=gtk-theme-arc-gruvbox-git user={{ user.name }}
+- name: Enable middle-click scrolling
+  template: src=30-scroll.conf dest=/etc/X11/xorg.conf.d/30-scroll.conf
+  when: libinput.middle_click_scroll is defined
   tags:
-    - aur
+    - libinput
+
+- name: Remap mouse buttons
+  template: src=30-button_mapping.conf dest=/etc/X11/xorg.conf.d/30-button_mapping.conf
+  when: libinput.button_mapping is defined
+  tags:
+    - libinput
+
 
 - include: sxhkd.yml
 - include: unclutter.yml
 - include: autorandr.yml
 - include: srandrd.yml
-- include: arandr.yml
 - include: alacritty.yml
 - include: autocutsel.yml
+- include: xdg.yml
