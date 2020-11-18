@@ -5,9 +5,9 @@
     state: present
 
 - name: Install mpv
-  aur:
-    name: mpv-git
-    user: "{{ user.name }}"
+  pacman:
+    name: mpv
+    state: present
 
   tags:
     - aur

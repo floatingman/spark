@@ -32,7 +32,6 @@ aur:
         - vscodium-bin
         - sc-im
         - powershell-preview-bin
-        - franz
         - tmuxinator
 
 ssh:
