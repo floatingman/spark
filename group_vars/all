@@ -60,6 +60,7 @@ network:
       - 7d400962-6031-324b-acc7-5a22c74a35b0
       - a666b5a1-73ee-4bd4-aa2b-099932cf7c49
       - a50afff5-7ca5-3b28-8375-3d7764aff92a
+      - b91315d6-102a-4dbd-848d-e793d65ccbf0
 
 editors:
     - gvim
@@ -122,6 +123,7 @@ base_packages:
     - broot
     - fd
     - cpulimit
+    - xsettingsd
 
 python_packages:
     - python2
