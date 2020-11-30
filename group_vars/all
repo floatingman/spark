@@ -56,11 +56,6 @@ network:
     spoof_mac: True
     conn_check:
         interval: 0
-    trusted_uuid:
-      - 7d400962-6031-324b-acc7-5a22c74a35b0
-      - a666b5a1-73ee-4bd4-aa2b-099932cf7c49
-      - a50afff5-7ca5-3b28-8375-3d7764aff92a
-      - b91315d6-102a-4dbd-848d-e793d65ccbf0
 
 editors:
     - gvim
@@ -173,21 +168,6 @@ tor:
 
 localtime:
     run_on: trusted
-
-unbound:
-    tls: True
-    roothints_update: trusted
-    nameservers:
-        - 1.1.1.1@853#cloudflare-dns.com  # Cloudflare
-        - 9.9.9.9@853#dns.quad9.net  # Quad9
-    private_domains:
-        - corp
-        - home
-        - intranet
-        - lan
-        - mesh
-        - private
-    allow_lan_dns: True
 
 bluetooth:
     disable: False
