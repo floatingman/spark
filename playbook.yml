@@ -22,7 +22,6 @@
     - { role: nettools, tags: ['nettools'] }
     - { role: openresolv, tags: ['openresolv'] }
     - { role: networkmanager, tags: ['networkmanager'] }
-    - { role: nmtrust, tags: ['nmtrust'] }
     - { role: macchiato, tags: ['macchiato'] }
     - { role: ntp, tags: ['ntp'] }
     - { role: tor, tags: ['tor'], when: "tor is defined" }

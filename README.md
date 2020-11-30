@@ -81,24 +81,6 @@ profile file at `/etc/NetworkManager/system-connections/`.
 Spoofing may be disabled entirely by setting the `network.spoof_mac` variable
 to `False`.
 
-## Trusted Networks
-
-The trusted network framework provided by [nmtrust][12] is leveraged to start
-certain systemd units when connected to trusted networks, and stop them
-elsewhere.
-
-This helps to avoid leaking personal information on untrusted networks by
-ensuring that certain network tasks are not running in the background.
-Currently, this is used for mail syncing (see the section below on Syncing and
-Scheduling Mail), Tarsnap backups (see the section below on Scheduling
-Tarsnap), BitlBee (see the section below on BitlBee), and git-annex (see the
-section below on git-annex).
-
-Trusted networks are defined using their NetworkManager UUIDs, configured in
-the `network.trusted_uuid` list. NetworkManager UUIDs may be discovered using
-`nmcli con`.
-
-
 ## Mail
 
 ### Receiving Mail
@@ -277,7 +259,6 @@ Take a look in the infinality and haskell roles for examples on adding custom re
 [9]: https://wiki.archlinux.org/index.php/AUR_helpers
 [10]: https://firejail.wordpress.com/
 [11]: https://github.com/EtiennePerot/macchiato
-[12]: https://github.com/pigmonkey/nmtrust
 [13]: http://isync.sourceforge.net/
 [14]: http://offlineimap.org/
 [15]: http://msmtp.sourceforge.net/

@@ -19,8 +19,3 @@
   notify:
     - reload systemd config
     - restart bitlbee
-
-- include_tasks: roles/nmtrust/tasks/unit.yml
-  vars:
-    unit: bitlbee.service
-    run_on: "{{ bitlbee.run_on }}"
