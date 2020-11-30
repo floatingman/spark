@@ -32,6 +32,13 @@
     name: "{{ video_drivers }}"
     state: present
 
+- name: Install glyph rendering library from aur
+  aur:
+    name: libxft-bgra-git
+    user: "{{ user.name }}"
+  tags:
+    - aur
+
 - name: Add user to video group
   user: name={{ user.name }} groups=video append=yes
   tags:
