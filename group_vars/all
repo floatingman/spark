@@ -33,6 +33,7 @@ aur:
         - sc-im
         - powershell-preview-bin
         - tmuxinator
+        - lf-git
 
 ssh:
     port: 22
@@ -114,11 +115,13 @@ base_packages:
     - prettyping
     - ccls
     - luarocks
-    - vifm
     - broot
     - fd
     - cpulimit
     - xsettingsd
+    - highlight
+    - mediainfo
+    - odt2txt
 
 python_packages:
     - python2
