@@ -133,8 +133,8 @@ Configure GRUB.
     # UEFI mode - set the UUID of the encrypted root device
     $ ROOTUUID=$(blkid /dev/sda3 | awk '{print $2}' | cut -d '"' -f2)
     $ sed -i "s/^GRUB_CMDLINE_LINUX=.*/GRUB_CMDLINE_LINUX=\"cryptdevice=UUID="$ROOTUUID":lvm:allow-discards root=\/dev\/mapper\/arch-root resume=\/dev\/mapper\/arch-swap\"/" /etc/default/grub
-    $ grub-mkconfig -o /boot/grub/grub.cfg
     $ grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=grub --recheck
+    $ grub-mkconfig -o /boot/grub/grub.cfg
     $ chmod -R g-rwx,o-rwx /boot
 
 Cleanup and reboot!
