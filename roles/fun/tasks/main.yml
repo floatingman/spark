@@ -49,9 +49,7 @@
       - fortune-mod-montypython
       - fortune-mod-firefly
       - wikiquote-fortune
-      - fortune-mod-southpark
       - fortune-mod-calvin
-      - fortune-mod-scrubs
       - fortune-mod-starwars
       - fortune-mod-oblique-strategies
     user: "{{ user.name }}"
