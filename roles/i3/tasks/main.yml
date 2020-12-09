@@ -20,6 +20,11 @@
 - name: Install py3status
   pacman: name=py3status state=present
 
+- name: Install autotiling
+  aur:
+    name: autotiling-git
+    user: "{{ user.name }}"
+
 - name: Verify that default applications file exists
   file: path=/etc/xdg/mimeapps.list state=touch
 
