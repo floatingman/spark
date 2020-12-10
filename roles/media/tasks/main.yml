@@ -38,6 +38,11 @@
     name: youtube-dl
     state: present
 
+- name: Install youtube-viewer
+  pacman:
+    name: youtube-viewer
+    state: preset
+
 - name: Install zbar
   pacman:
     name: zbar

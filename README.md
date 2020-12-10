@@ -244,6 +244,10 @@ Additional configuration options are set which improve performance but make the
 database service inappropriate for production use.
 
 
+** Youtube-viewer
+
+[Youtube-viewer][28] requires a little bit more setup. You can find instructions [here][https://github.com/trizen/youtube-viewer#logging-in]
+
 ## Adding custom pacman repositories
 
 Take a look in the infinality and haskell roles for examples on adding custom repositories that need signed keys
@@ -274,3 +278,4 @@ Take a look in the infinality and haskell roles for examples on adding custom re
 [25]: https://weechat.org/
 [26]: https://git-annex.branchable.com/
 [27]: http://www.postgresql.org/
+[28]: https://github.com/trizen/youtube-viewer
