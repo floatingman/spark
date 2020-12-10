@@ -23,6 +23,11 @@
     name: pasystray
     state: present
 
+- name: Install pamixer
+  pacman:
+    name: pamixer
+    state: present
+
 - name: Install pulseaudio-ctl
   aur:
     name: pulseaudio-ctl

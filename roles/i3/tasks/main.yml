@@ -2,23 +2,9 @@
 - name: Install i3
   pacman:
     name:
-      - i3-wm
+      - i3-gaps
       - i3blocks
-      - i3status
     state: present
-
-- name: Install betterlockscreen
-  aur:
-    name: betterlockscreen
-    user: "{{ user.name }}"
-
-- name: Install polybar
-  aur:
-    name: polybar-git
-    user: "{{ user.name }}"
-
-- name: Install py3status
-  pacman: name=py3status state=present
 
 - name: Install autotiling
   aur:

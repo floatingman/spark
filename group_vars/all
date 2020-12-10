@@ -123,6 +123,8 @@ base_packages:
     - mediainfo
     - odt2txt
     - keepassxc
+    - newsboat
+    - calcurse
 
 python_packages:
     - python2
@@ -149,6 +151,21 @@ browser_choices:
 
 passwordless_sudo:
     - /usr/bin/openvpn*
+    - /usr/bin/shutdown
+    - /usr/bin/reboot
+    - /usr/bin/systemctl suspend
+    - /usr/bin/wifi-menu
+    - /usr/bin/mount
+    - /usr/bin/umount
+    - /usr/bin/pacman -Syu
+    - /usr/bin/pacman -Syyu
+    - /usr/bin/packer -Syu
+    - /usr/bin/packer -Syyu
+    - /usr/bin/systemctl restart NetworkManager
+    - /usr/bin/pacman -Syyu --noconfirm
+    - /usr/bin/loadkeys
+    - /usr/bin/yay
+    - /usr/bin/pacman -Syyuw --noconfirm
 
 gitannex:
     stop_on_untrusted: True
