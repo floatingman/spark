@@ -34,6 +34,7 @@ aur:
         - powershell-preview-bin
         - tmuxinator
         - lf-git
+        - task-spooler
 
 ssh:
     port: 22
