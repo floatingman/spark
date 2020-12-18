@@ -41,7 +41,7 @@
 - name: Install youtube-viewer
   pacman:
     name: youtube-viewer
-    state: preset
+    state: present
 
 - name: Install zbar
   pacman:

@@ -16,3 +16,19 @@
     state: present
   tags:
     - shell
+
+- name: Install shell helpers
+  aur:
+    name:
+      - shell-color-scripts
+    user: "{{user.name}}"
+  tags:
+    - aur
+
+- name: Install prompt helpers
+  aur:
+    name:
+      - starship
+    user: "{{user.name}}"
+  tags:
+    - aur

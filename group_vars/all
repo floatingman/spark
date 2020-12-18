@@ -178,7 +178,7 @@ bitlbee:
 bootloader: grub
 
 postgresql:
-    enable: True
+    enable: False
     root: /home/postgres
 
 fingerprint: False
