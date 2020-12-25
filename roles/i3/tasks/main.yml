@@ -21,3 +21,6 @@
               insertbefore=BOF
 
 - include: rofi.yml
+
+- name: Install dunst
+  pacman: name=dunst state=present

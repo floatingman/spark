@@ -32,3 +32,8 @@
     user: "{{user.name}}"
   tags:
     - aur
+
+- name: Install fish
+  pacman:
+    name: fish
+    state: present
