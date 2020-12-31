@@ -244,6 +244,7 @@ base_fonts:
     - ttf-caladea
     - ttf-joypixels
     - xorg-fonts-misc
+    - ttf-fantasque-sans-mono
 
 aur_fonts:
     - ttf-signika
@@ -256,6 +257,7 @@ aur_fonts:
     - ttf-iosevka
     - ttf-unifont
     - siji-git
+    - ttf-sourcesanspro
 
 kernel_parameters: "quiet consoleblank=60 i915.enable_psr=2"
 
