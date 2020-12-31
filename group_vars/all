@@ -127,6 +127,7 @@ base_packages:
     - newsboat
     - calcurse
     - exa
+    - xfce4-power-manager
 
 python_packages:
     - python2
