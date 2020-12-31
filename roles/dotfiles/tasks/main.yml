@@ -21,6 +21,12 @@
   become: yes
   become_user: "{{ user.name }}"
 
+- name: Symlink rcm rc file to user directory
+  file:
+    src: "/home/{{ user.name }}/{{ dotfiles.destination }}/rcrc"
+    dest: "/home/{{ user.name }}/.rcrc"
+    state: link
+
 - name: Install user dotfiles
   command: rcup -d /home/{{ user.name }}/{{ dotfiles.destination}} {{ dotfiles.rcup_flags }}
   when: dotfiles is defined
@@ -29,6 +35,12 @@
 
 - name: Install linux tagged dotfiles
   command: rcup -d /home/{{ user.name }}/{{ dotfiles.destination }} -tag linux
+  when: dotfiles is defined
+  become: yes
+  become_user: "{{ user.name }}"
+
+- name: Install linux-gui tagged dotfiles
+  command: rcup -d /home/{{ user.name }}/{{ dotfiles.destination }} -tag linux-gui
   when: dotfiles is defined
   become: yes
   become_user: "{{ user.name }}"
