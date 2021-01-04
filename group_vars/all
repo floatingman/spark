@@ -245,6 +245,8 @@ base_fonts:
     - ttf-joypixels
     - xorg-fonts-misc
     - ttf-fantasque-sans-mono
+    - ttf-roboto-mono
+    - ttf-jetbrains-mono
 
 aur_fonts:
     - ttf-signika
@@ -258,6 +260,7 @@ aur_fonts:
     - ttf-unifont
     - siji-git
     - ttf-sourcesanspro
+    - ttf-breeze-sans
 
 kernel_parameters: "quiet consoleblank=60 i915.enable_psr=2"
 
