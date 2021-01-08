@@ -35,6 +35,8 @@ aur:
         - tmuxinator
         - lf-git
         - task-spooler
+        - aic94xx-firmware
+        - wd719x-firmware
 
 ssh:
     port: 22
