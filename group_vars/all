@@ -29,7 +29,6 @@ aur:
         - myrepos
         - ctmg
         - jetbrains-toolbox
-        - vscodium-bin
         - sc-im
         - powershell-preview-bin
         - tmuxinator
@@ -37,6 +36,7 @@ aur:
         - task-spooler
         - aic94xx-firmware
         - wd719x-firmware
+        - visual-studio-code-bin
 
 ssh:
     port: 22
@@ -130,6 +130,7 @@ base_packages:
     - calcurse
     - exa
     - xfce4-power-manager
+    - atom
 
 python_packages:
     - python2
@@ -263,6 +264,7 @@ aur_fonts:
     - siji-git
     - ttf-sourcesanspro
     - ttf-breeze-sans
+    - oldschool-pc-fonts
 
 kernel_parameters: "quiet consoleblank=60 i915.enable_psr=2"
 
@@ -280,7 +282,7 @@ pkgfile:
   run_on: trusted
 
 hardened:
-  enable_namespaces: true
+  enable_namespaces: false
 
 sdkman:
   sdkman_user: "{{ user.name }}"

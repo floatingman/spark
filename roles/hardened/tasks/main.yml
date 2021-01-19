@@ -1,9 +1,9 @@
 ---
-- name: Install linux-hardened
+- name: Install linux
   pacman:
     name:
-      - linux-hardened
-      - linux-hardened-headers
+      - linux
+      - linux-headers
     state: present
   notify:
     - rebuild grub

@@ -39,9 +39,9 @@
     state: present
 
 - name: Install youtube-viewer
-  pacman:
-    name: youtube-viewer
-    state: present
+  aur:
+    name: youtube-viewer-git
+    user: "{{ user.name }}"
 
 - name: Install zbar
   pacman:
