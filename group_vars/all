@@ -21,9 +21,8 @@ dotfiles:
 aur:
     dir: aur
     packages:
-        - yay
+        - paru
         - downgrade
-        - zplug
         - rxvt-unicode-patched
         - miller
         - myrepos
@@ -171,6 +170,7 @@ passwordless_sudo:
     - /usr/bin/pacman -Syyu --noconfirm
     - /usr/bin/loadkeys
     - /usr/bin/yay
+    - /usr/bin/paru
     - /usr/bin/pacman -Syyuw --noconfirm
 
 gitannex:
