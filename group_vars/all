@@ -148,7 +148,7 @@ browser_choices:
     - firefox -P default
     - firefox -P work
     - brave
-    - chromium
+    - google-chrome-unstable
     - tor-browser-en
     - play
     - qcode
@@ -250,6 +250,8 @@ base_fonts:
     - ttf-fantasque-sans-mono
     - ttf-roboto-mono
     - ttf-jetbrains-mono
+    - ttc-iosevka
+    - ttc-iosevka-aile
 
 aur_fonts:
     - ttf-signika
@@ -259,7 +261,6 @@ aur_fonts:
     - ttf-merriweather
     - ttf-courier-prime
     - ttf-heuristica
-    - ttf-iosevka
     - ttf-unifont
     - siji-git
     - ttf-sourcesanspro

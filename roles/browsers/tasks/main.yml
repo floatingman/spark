@@ -27,12 +27,14 @@
     - aur
     - firefox
 
-- name: Install Chromium
-  pacman:
-    name: chromium
-    state: present
+- name: Install Google Chrome Dev version
+  aur:
+    name: google-chrome-dev
+    user: "{{ user.name }}"
+    skip_pgp: yes
   tags:
-    - chromium
+    - aur
+    - google-chrome
 
 - name: Install tor-browser
   pacman:
