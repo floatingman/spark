@@ -3,3 +3,12 @@
   aur: name=localtime-git user={{ user.name }}
   tags:
     - aur
+
+- name: Allow localtimed to access geoclue
+  blockinfile:
+    dest: /etc/geoclue/geoclue.conf
+    block: |
+      [localtimed]
+      allowed=true
+      system=false
+      users=

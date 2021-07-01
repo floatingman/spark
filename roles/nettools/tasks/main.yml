@@ -58,5 +58,4 @@
   pacman:
     name:
       - wireguard-tools
-      - wireguard-dkms
     state: present

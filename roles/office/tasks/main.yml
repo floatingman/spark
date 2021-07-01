@@ -18,7 +18,6 @@
   pacman:
     name:
       - pandoc
-      - pandoc-citeproc
     state: present
 
 - name: Install texlive-core
