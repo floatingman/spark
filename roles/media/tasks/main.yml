@@ -43,6 +43,21 @@
     name: youtube-viewer-git
     user: "{{ user.name }}"
 
+- name: Install yt-dlp
+  aur:
+    name: youtube-dlp
+    user: "{{ user.name }}"
+
+- name: Install Atomicparsley
+  pacman:
+    name: atomicparsley
+    state: present
+
+- name: Install sponskrub
+  aur:
+    name: sponskrub
+    user: "{{ user.name }}"
+
 - name: Install zbar
   pacman:
     name: zbar
