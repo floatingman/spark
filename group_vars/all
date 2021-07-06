@@ -124,12 +124,12 @@ base_packages:
     - highlight
     - mediainfo
     - odt2txt
-    - keepassxc
     - newsboat
     - calcurse
     - exa
     - xfce4-power-manager
     - atom
+    - neofetch
 
 python_packages:
     - python2
